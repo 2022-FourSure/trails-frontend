@@ -1,15 +1,14 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage'
-import DetailsPage from './pages/DetailsPage.jsx'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <div>
-
+      <Navbar />
       <Routes>
-        <Route path='/trails/' element={<HomePage />} />
-        <Route path='/trails/:id' element={<DetailsPage />} />
+        <Route path='/' element={<HomePage />} />
       </Routes>
     </div>
   );
