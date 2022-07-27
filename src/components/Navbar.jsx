@@ -8,9 +8,11 @@ const Navbar = () => {
         <ul>
             <Link to='/auth/login'>Log In</Link>
             <Link to='/auth/signup'>Sign Up</Link>
-            {/* HR: For logged in user only */}
-            {/* <Link to='/trails/new'>Create New Trail</Link> */}
+            {/* HR: Links below should be for logged in user only */}
             {/* <Link to='/trails/???'>Log Out</Link> */}
+            {/* HR: Keeping this line active for testing purposes */}
+            <Link to='/trails/new'>Create New Trail</Link>
+
         </ul>
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import { useParams, useNavigate } from "react-router-dom"
 
-const EditTrail = () => {
+const EditTrail = ({ setTrails }) => {
     
     const { id } = useParams()
     const navigate = useNavigate()
@@ -26,8 +26,11 @@ const EditTrail = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.patch(`http://localhost:8000/trails/${id}`, formData).then((res) => {
-            navigate("/", { replace: true })
+        axios.patch(`http://localhost:8000/trails/${id}`, formData)
+        .then((res) => {
+            setFormData(initialState)
+            setTrails(res.data)
+            navigate(`/`, { replace: true })
         })
     }
 
@@ -36,7 +39,7 @@ const EditTrail = () => {
         .then(res => {
             setFormData(res.data)
         })
-    }, [])
+    }, [id])
 
     return (
         <div>
