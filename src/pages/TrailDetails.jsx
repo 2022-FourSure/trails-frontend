@@ -13,7 +13,7 @@ const TrailDetails = () => {
                 setTrail(json);
             })
             .catch(console.error);
-    });
+    }, []);
 
     return (
         <div>
