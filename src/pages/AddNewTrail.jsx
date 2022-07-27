@@ -18,9 +18,15 @@ const AddNewTrail = ({ addTrail }) => {
 
     const [formData, setFormData] = useState(initialState)
 
+    // Function to handle all form data except for the image
     const handleChange = (e) => {
         console.log(e.target)
         setFormData({ ...formData, [e.target.id]: e.target.value })
+    }
+
+    // Function to handle image upload in the form
+    const handleImage = (e) => {
+        setFormData({ ...formData, [e.target.id]: e.target.files[0] })
     }
 
     const handleSubmit = (e) => {
@@ -37,7 +43,7 @@ const AddNewTrail = ({ addTrail }) => {
     return (
         <div>
             <h2>Add New Trail</h2>
-            <form onSubmit={handleSubmit}>
+            <form encType='multipart/form-data' onSubmit={handleSubmit}>
                 <label htmlFor="name">Name</label>
                 <input
                     id="name"
@@ -100,7 +106,7 @@ const AddNewTrail = ({ addTrail }) => {
                     id="image"
                     name="image"
                     type="file"
-                    onChange={handleChange}
+                    onChange={handleImage}
                 />
 
                 <input type="submit" value="Submit" />
