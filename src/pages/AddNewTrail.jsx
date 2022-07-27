@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
 
-const AddNewTrail = () => {
+const AddNewTrail = ({ addTrail }) => {
     const initialState = {
         name: "",
         location: "",
@@ -19,12 +19,17 @@ const AddNewTrail = () => {
     const [formData, setFormData] = useState(initialState)
 
     const handleChange = (e) => {
+        console.log(e.target)
         setFormData({ ...formData, [e.target.id]: e.target.value })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:8000/trails/", formData).then((res) => {
+        console.log(formData)
+        axios.post("http://localhost:8000/trails/", formData)
+        .then((res) => {
+            setFormData(initialState)
+            addTrail(res.data)
             navigate("/", { replace: true })
         })
     }
@@ -41,7 +46,7 @@ const AddNewTrail = () => {
                     onChange={handleChange}
                 />
 
-                <label htmlFor="name">Location</label>
+                <label htmlFor="location">Location</label>
                 <input
                     id="location"
                     name="location"
@@ -49,7 +54,7 @@ const AddNewTrail = () => {
                     onChange={handleChange}
                 />
 
-                <label htmlFor="name">Difficulty</label>
+                <label htmlFor="difficulty">Difficulty</label>
                 <input
                     id="difficulty"
                     name="difficulty"
@@ -57,7 +62,7 @@ const AddNewTrail = () => {
                     onChange={handleChange}
                 />
 
-                <label htmlFor="name">Length</label>
+                <label htmlFor="length">Length</label>
                 <input
                     id="length"
                     name="length"
@@ -65,7 +70,7 @@ const AddNewTrail = () => {
                     onChange={handleChange}
                 />
 
-                <label htmlFor="name">Elevation Change</label>
+                <label htmlFor="elevationChange">Elevation Change</label>
                 <input
                     id="elevationChange"
                     name="elevationChange"
@@ -73,7 +78,7 @@ const AddNewTrail = () => {
                     onChange={handleChange}
                 />
 
-                <label htmlFor="name">Route Type</label>
+                <label htmlFor="routeType">Route Type</label>
                 <input
                     id="routeType"
                     name="routeType"
@@ -81,7 +86,7 @@ const AddNewTrail = () => {
                     onChange={handleChange}
                 />
 
-                <label htmlFor="name">Description</label>
+                <label htmlFor="description">Description</label>
                 <input
                     id="description"
                     name="description"
@@ -90,10 +95,10 @@ const AddNewTrail = () => {
                 />
 
                 {/* TODO: HR: Not sure how to send the image to the backend and store in cloudinary */}
-                <label htmlFor="name">Image</label>
+                <label htmlFor="image">Image</label>
                 <input
-                    id="file"
-                    name="file"
+                    id="image"
+                    name="image"
                     type="file"
                     onChange={handleChange}
                 />

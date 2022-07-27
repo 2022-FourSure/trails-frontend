@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-const TrailDetails = () => {
+const TrailDetails = ({ trails }) => {
     const [trail, setTrail] = useState({});
-
     const { id } = useParams();
 
     useEffect(() => {
@@ -13,7 +12,7 @@ const TrailDetails = () => {
                 setTrail(json);
             })
             .catch(console.error);
-    }, []);
+    }, [id]);
 
     return (
         <div>
@@ -28,16 +27,15 @@ const TrailDetails = () => {
                 <p>Elevation Change: {trail.elevationChange}</p>
             </div>
             <div>
-                {/* HR: Need to talk about Reviews together */}
-                <Link to="/">Write a Review</Link>
-            </div>
-              {/* HR: Render when user is logged in */}
-              {/* <div>
-                <button>Edit</button>
-                <button>Delete</button>
-              </div> */}
-            <div>
               {trail.description}
+            </div>
+            {/* HR: Should ONLY be available to logged in user. Currently active for test purposes */}
+            <div>
+                <Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link>
+                <button>Delete</button>
+            </div>
+            <div>
+                {/* TODO: Reviews section */}
             </div>
         </div>
     );
