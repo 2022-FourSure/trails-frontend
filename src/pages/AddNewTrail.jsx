@@ -26,13 +26,16 @@ const AddNewTrail = ({ addTrail }) => {
 
     // Function to handle image upload in the form
     const handleImage = (e) => {
+        console.log('handleImage ran')
         setFormData({ ...formData, [e.target.id]: e.target.files[0] })
     }
 
     const handleSubmit = (e) => {
+        console.log('handleSubmit ran')
         e.preventDefault()
-        console.log(formData)
-        axios.post("http://localhost:8000/trails/", formData)
+        console.log('formData', formData)
+        // multipart/form-data is needed so backend knows to look for files
+        axios.post("http://localhost:8000/trails/", formData, {headers: {"Content-Type": "multipart/form-data"}})
         .then((res) => {
             setFormData(initialState)
             addTrail(res.data)
@@ -100,7 +103,6 @@ const AddNewTrail = ({ addTrail }) => {
                     onChange={handleChange}
                 />
 
-                {/* TODO: HR: Not sure how to send the image to the backend and store in cloudinary */}
                 <label htmlFor="image">Image</label>
                 <input
                     id="image"

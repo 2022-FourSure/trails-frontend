@@ -20,9 +20,16 @@ const EditTrail = ({ setTrails }) => {
 
     const [formData, setFormData] = useState(initialState);
 
+        // Function to handle all form data except for the image
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.id]: e.target.value });
+        setFormData({ ...formData, [e.target.id]: e.target.value })
     }
+
+    // Function to handle image upload in the form
+    const handleImage = (e) => {
+        setFormData({ ...formData, [e.target.id]: e.target.files[0] })
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -108,16 +115,14 @@ const EditTrail = ({ setTrails }) => {
                     onChange={handleChange}
                 />
 
-                {/* HR: Not sure how to display the existing image because we have converted it to a url now */}
                 <label htmlFor="name">Image</label>
                 <input
                     id="image"
                     name="image"
                     type="file"
-                    onChange={handleChange}
+                    onChange={handleImage}
                 />
 
-                {/* TODO: HR: Partially working, having issues not getting a response from backend. (Mainly due to the image) */}
                 <input type="submit" value="Submit" />
             </form>
         </div>
