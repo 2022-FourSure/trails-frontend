@@ -11,7 +11,6 @@ function App() {
 
   // Set state for trails and reviews in the app
   const [trails, setTrails] = useState([]);
-  const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
         // HR: Wrote out the whole link to hit PORT 8000
@@ -29,25 +28,16 @@ function App() {
       setTrails([...trails, trail])
     }
     // Function to remove a trail from state
-    const updateTrailState = (id) => {
+    const deleteTrailFromState = (id) => {
       setTrails(trails.filter(trail => trail._id !== id))
-    }
-
-    // Function to add a review to state
-    const addReview = (review) => {
-      setReviews([...reviews, review])
-    }
-    // Function to remove a review from state
-    const deleteReview = (id) => {
-      setReviews(reviews.filter(review => review._id !== id))
     }
 
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home trails={trails} updateTrailState={updateTrailState}/>} />
-        <Route path='/trails/:id' element={<TrailDetails trails={trails} updateTrailState={updateTrailState} reviews={reviews} addReview={addReview} deleteReview={deleteReview}/>} />
+        <Route path='/' element={<Home trails={trails} deleteTrailFromState={deleteTrailFromState}/>} />
+        <Route path='/trails/:id' element={<TrailDetails trails={trails} deleteTrailFromState={deleteTrailFromState}/>} />
         <Route path='/trails/new' element={<AddNewTrail addTrail={addToTrail}/>} />
         <Route path='/trails/edit/:id' element={<EditTrail trails={trails} setTrails={setTrails}/>} />
       </Routes>
