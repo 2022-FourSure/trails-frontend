@@ -44,7 +44,7 @@ const TrailUpdates = styled.div`
     }
 `
 
-const TrailDetails = ({ trails, updateTrailState, reviews, addReview, deleteReview }) => {
+const TrailDetails = ({ trails, deleteTrailFromState}) => {
     const initialState = {
         content: "",
         rating: "",
@@ -55,6 +55,7 @@ const TrailDetails = ({ trails, updateTrailState, reviews, addReview, deleteRevi
     // const navigate = useNavigate();
     const [formData, setFormData] = useState(initialState);
     const [trail, setTrail] = useState({});
+    const [reviews, setReviews] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate()
 
@@ -68,6 +69,15 @@ const TrailDetails = ({ trails, updateTrailState, reviews, addReview, deleteRevi
             })
             .catch(console.error);
     }, [id]);
+
+     // Function to add a review to state
+     const addReview = (review) => {
+        setReviews([...reviews, review])
+      }
+      // Function to remove a review from state
+      const deleteReview = (id) => {
+        setReviews(reviews.filter(review => review._id !== id))
+      }
 
     // CC's NOTES FROM BILLIE, PLEASE KEEP FOR NOW
     // Do reviews.find => give me all reviews wehere ID is this trailID
@@ -98,7 +108,7 @@ const TrailDetails = ({ trails, updateTrailState, reviews, addReview, deleteRevi
         axios.delete(`http://localhost:8000/trails/${id}`)
         .then(res => {
             console.log(res)
-            updateTrailState(id)
+            deleteTrailFromState(id)
             navigate('/')
         })
       }
@@ -157,7 +167,9 @@ const TrailDetails = ({ trails, updateTrailState, reviews, addReview, deleteRevi
 
                     <input type="submit" value="Submit" />
                 </form>
-
+                <div>
+                    {console.log(trails?.reviews)}
+                </div>
             </div>
         </PageContainer>
     );
