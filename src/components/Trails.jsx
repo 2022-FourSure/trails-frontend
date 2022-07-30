@@ -9,7 +9,10 @@ const TrailsContainer = styled.div`
     gap: 5px;
 `
 
-const Trails = ({trails}) => {
+const Trails = ({ trails }) => {
+
+  console.log('trails', trails)
+
   return (
     <TrailsContainer>
       {trails.map((trail) => {

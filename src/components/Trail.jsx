@@ -28,7 +28,7 @@ const TrailImage = styled.div`
   }
 `
 
-const Trail = ({trail}) => {
+const Trail = ({ trail }) => {
   return (
     <TrailContainer>
       <TrailImage>
