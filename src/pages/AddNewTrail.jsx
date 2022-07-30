@@ -1,6 +1,48 @@
 import React, { useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
+import styled from 'styled-components'
+
+const FormStyle = styled.div`
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    h2 {
+        text-align: center;
+    }
+    div {
+        text-align: center;
+    }
+    input[type=text] {
+        /* text-align: center; */
+        width: 40%;
+        padding: 12px 20px;
+        margin: 12px 0;
+        border: none;
+        border-bottom: 2px solid gray;
+    }
+    /* textarea {
+        width: 42%;
+        padding: 15px;
+        margin: 12px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    } */
+    input[type=submit] {
+        background-color: #959393;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        margin-top: 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+    }
+`
 
 const AddNewTrail = ({ addTrail }) => {
     const initialState = {
@@ -44,76 +86,117 @@ const AddNewTrail = ({ addTrail }) => {
     }
 
     return (
-        <div>
+        <FormStyle>
             <h2>Add New Trail</h2>
+            {/* HR: Placeholders are commented out because it gives an error where you can't submit if the input fields have placeholders */}
             <form encType='multipart/form-data' onSubmit={handleSubmit}>
-                <label htmlFor="name">Name</label>
-                <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="name">Trail Name</label>
+                    <div>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            // placeholder="Name"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-                <label htmlFor="location">Location</label>
-                <input
-                    id="location"
-                    name="location"
-                    type="text"
-                    onChange={handleChange}
-                />
+                 <div>
+                    <label htmlFor="location">Location</label>
+                    <div>
+                        <input
+                            id="location"
+                            name="location"
+                            type="text"
+                            // placeholder="Location (city, state)"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-                <label htmlFor="difficulty">Difficulty</label>
-                <input
-                    id="difficulty"
-                    name="difficulty"
-                    type="text"
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="difficulty">Difficulty</label>
+                    <div>
+                        <input
+                            id="difficulty"
+                            name="difficulty"
+                            type="text"
+                            // placeholder="Difficulty (level 1 - 5)"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-                <label htmlFor="length">Length</label>
-                <input
-                    id="length"
-                    name="length"
-                    type="text"
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="length">Length</label>
+                        <div> 
+                            <input
+                                id="length"
+                                name="length"
+                                type="text"
+                                // placeholder="Length (miles)"
+                                onChange={handleChange}
+                            />
+                        </div>
+                </div>
 
-                <label htmlFor="elevationChange">Elevation Change</label>
-                <input
-                    id="elevationChange"
-                    name="elevationChange"
-                    type="text"
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="elevationChange">Elevation Change</label>
+                    <div>
+                        <input
+                            id="elevationChange"
+                            name="elevationChange"
+                            type="text"
+                            // placeholder="Elevation Change (numerical)"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-                <label htmlFor="routeType">Route Type</label>
-                <input
-                    id="routeType"
-                    name="routeType"
-                    type="text"
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="routeType">Route Type</label>
+                    <div>
+                        <input
+                            id="routeType"
+                            name="routeType"
+                            type="text"
+                            // placeholder="Route Type (e.g. Loop)"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-                <label htmlFor="description">Description</label>
-                <input
-                    id="description"
-                    name="description"
-                    type="text"
-                    onChange={handleChange}
-                />
+                <div>
+                    <label htmlFor="description">Description</label>
+                    <div>
+                        <textarea
+                            id="description"
+                            name="description"
+                            type="text"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-                <label htmlFor="image">Image</label>
-                <input
-                    id="image"
-                    name="image"
-                    type="file"
-                    onChange={handleImage}
-                />
+                <div>
+                    <label htmlFor="image">Image</label>
+                    <div>
+                        <input
+                            id="image"
+                            name="image"
+                            type="file"
+                            onChange={handleImage}
+                        />
+                    </div>
+                </div>
 
-                <input type="submit" value="Submit" />
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
             </form>
-        </div>
+        </FormStyle>
     )
 }
 
