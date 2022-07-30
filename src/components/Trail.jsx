@@ -12,6 +12,7 @@ const TrailContainer = styled.div`
 `
 
 const TrailDetail = styled.div`
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
   font-size: 1em;
   margin: 15px 20px;
