@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar.jsx'
+import Navbar from './components/Navbar';
 import Home from './pages/Home'
 import TrailDetails from './pages/TrailDetails' ;
 import AddNewTrail from './pages/AddNewTrail';
