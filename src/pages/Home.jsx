@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const HomepageBody = styled.div`
     h1 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         font-size: 50px;
         text-align: center;
     }

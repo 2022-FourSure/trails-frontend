@@ -1,6 +1,48 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams, Link, useNavigate } from "react-router-dom";
+import styled from 'styled-components'
+
+const PageContainer = styled.div`
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`
+
+const TrailDetailContainer = styled.div`
+    display: flex;
+    align-content: center;
+    justify-content: center;
+`
+
+const ImageContainer = styled.div`
+    align-items: center;
+    img {
+        width: 45vw;
+        margin: 40px 40px;
+    }
+`
+
+const DetailsContainer = styled.div`
+    align-items: center;
+    width: 40vw;
+    margin: 20px 40px;
+`
+
+const TrailUpdates = styled.div`
+    margin-top: 15px;
+    display: flex; 
+    gap: 10px;
+    button {
+        background-color: #959393;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+    }
+`
 
 const TrailDetails = ({ trails, updateTrailState, reviews, addReview, deleteReview }) => {
     const initialState = {
@@ -62,25 +104,30 @@ const TrailDetails = ({ trails, updateTrailState, reviews, addReview, deleteRevi
       }
 
     return (
-        <div>
-            <div>
-                <img src={trail.image} alt={trail.name} />
-            </div>
-            <div>
-                <h2>{trail.name}</h2>
-                <p>{trail.location}</p>
-                <p>Difficulty: Level {trail.difficulty}</p>
-                <p>Length: {trail.length} mile(s)</p>
-                <p>Elevation Change: {trail.elevationChange}</p>
-            </div>
-            <div>
-              {trail.description}
-            </div>
-            {/* HR: Should ONLY be available to logged in user. Currently active for test purposes */}
-            <div>
-                <Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link>
-                <button onClick={() => deleteTrail(trail._id)}>Delete</button>
-            </div>
+        <PageContainer>
+            {/* ~~~~~~~~~~~Trail Detail Section~~~~~~~~~~~ */}
+            <TrailDetailContainer>
+                <ImageContainer>
+                    <img src={trail.image} alt={trail.name} />
+                </ImageContainer>
+                <DetailsContainer>
+                    <h2>{trail.name}</h2>
+                    <p>{trail.location}</p>
+                    <p><b>Difficulty:</b> Level {trail.difficulty}</p>
+                    <p><b>Length:</b> {trail.length} mile(s)</p>
+                    <p><b>Elevation Change:</b> {trail.elevationChange}</p>
+                    <div>
+                        {trail.description}
+                    </div>
+                    {/* HR: Should ONLY be available to logged in user. Currently active for test purposes */}
+                    <TrailUpdates>
+                        <Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link>
+                        <button onClick={() => deleteTrail(trail._id)}>Delete</button>
+                    </TrailUpdates>
+                </DetailsContainer>
+            </TrailDetailContainer>
+
+            {/* ~~~~~~~~~~~Trail Detail Section~~~~~~~~~~~ */}
 
             {/* Reviews section */}
             <div>
@@ -112,7 +159,7 @@ const TrailDetails = ({ trails, updateTrailState, reviews, addReview, deleteRevi
                 </form>
 
             </div>
-        </div>
+        </PageContainer>
     );
 };
 
