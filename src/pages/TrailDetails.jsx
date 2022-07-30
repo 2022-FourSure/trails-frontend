@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams, Link, useNavigate } from "react-router-dom";
 
-const TrailDetails = ({ trails, reviews, addReview, deleteReview }) => {
+const TrailDetails = ({ trails, updateTrailState, reviews, addReview, deleteReview }) => {
     const initialState = {
         content: "",
         rating: "",
@@ -14,6 +14,7 @@ const TrailDetails = ({ trails, reviews, addReview, deleteReview }) => {
     const [formData, setFormData] = useState(initialState);
     const [trail, setTrail] = useState({});
     const { id } = useParams();
+    const navigate = useNavigate()
 
     useEffect(() => {
         // CC: THIS NEEDS TO BE UPDATED WITH BACKEND FOR REVIEWS
@@ -49,6 +50,17 @@ const TrailDetails = ({ trails, reviews, addReview, deleteReview }) => {
         })
     }
 
+    const deleteTrail = (id) => {
+        console.log(trails)
+        console.log(id)
+        axios.delete(`http://localhost:8000/trails/${id}`)
+        .then(res => {
+            console.log(res)
+            updateTrailState(id)
+            navigate('/')
+        })
+      }
+
     return (
         <div>
             <div>
@@ -67,7 +79,7 @@ const TrailDetails = ({ trails, reviews, addReview, deleteReview }) => {
             {/* HR: Should ONLY be available to logged in user. Currently active for test purposes */}
             <div>
                 <Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link>
-                <button>Delete</button>
+                <button onClick={() => deleteTrail(trail._id)}>Delete</button>
             </div>
 
             {/* Reviews section */}
