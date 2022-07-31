@@ -22,9 +22,11 @@ function App() {
             .catch(console.error);
     }, []);
 
+    console.log(trails)
+
     // Create some functions to manipulate state to be passed as props
     // Function to add a trail to state
-    const addToTrail = (trail) => {
+    const addTrailToState = (trail) => {
       setTrails([...trails, trail])
     }
     // Function to remove a trail from state
@@ -37,8 +39,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home trails={trails} deleteTrailFromState={deleteTrailFromState}/>} />
-        <Route path='/trails/:id' element={<TrailDetails trails={trails} deleteTrailFromState={deleteTrailFromState}/>} />
-        <Route path='/trails/new' element={<AddNewTrail addTrail={addToTrail}/>} />
+        <Route path='/trails/:id' element={<TrailDetails trails={trails} setTrails={setTrails} deleteTrailFromState={deleteTrailFromState}/>} />
+        <Route path='/trails/new' element={<AddNewTrail addTrailToState={addTrailToState}/>} />
         <Route path='/trails/edit/:id' element={<EditTrail trails={trails} setTrails={setTrails}/>} />
       </Routes>
     </div>
