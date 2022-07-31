@@ -7,16 +7,22 @@ const TrailContainer = styled.div`
   flex-direction: column;
   width: 30vw;
   min-width: 200px;
-  margin: 25px auto;
+  margin: 10px auto;
   box-shadow: 5px 5px 15px #e0dede;
 `
 
 const TrailDetail = styled.div`
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
-  font-size: 1em;
-  margin: 15px 20px;
+  font-size: 1.6vw;
+  margin: 10px 15px;
+  h3 {
+    font-size: 1.6vw;
+  }
 `
+const linkStyle = {
+  color: '#0b830b'
+}
 
 const TrailImage = styled.div`
   display: flex;
@@ -37,7 +43,7 @@ const Trail = ({ trail }) => {
       </TrailImage>
       <TrailDetail>
         <h3>{trail.name}</h3>
-        <Link to={`/trails/${trail._id}`}>More Details</Link>
+        <Link to={`/trails/${trail._id}`} style={linkStyle}>More Details</Link>
       </TrailDetail>
     </TrailContainer>
   )

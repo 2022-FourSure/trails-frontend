@@ -8,6 +8,9 @@ const FormStyle = styled.div`
     flex-direction: column;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 18px;
+    background-color: #e9e9e9;
+    margin: 4vw;
+    padding: 20px;
     h2 {
         text-align: center;
     }
@@ -16,31 +19,36 @@ const FormStyle = styled.div`
     }
     input[type=text] {
         text-align: center;
-        width: 40%;
+        width: 50%;
         padding: 12px 20px;
         margin: 12px 0;
         border: none;
         border-bottom: 2px solid gray;
     }
-    /* textarea {
-        width: 42%;
-        padding: 15px;
-        margin: 12px 0;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        resize: vertical;
-    } */
+    textarea {
+        width: 45vw;
+        height: 15vh;
+        font-size: 15px;
+    }
     input[type=submit] {
-        background-color: #959393;
-        border: none;
-        color: white;
-        padding: 10px 20px;
+        background-color: white;
+        border: 2px solid #959393;
+        border-radius: 4px;
+        color: black;
+        padding: 5px 10px;
         margin-top: 15px;
         text-align: center;
         text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
         cursor: pointer;
+    }
+    input[type=submit] {
+        transition-duration: 0.4s;
+    }
+
+    input[type=submit]:hover {
+        background-color: #0b830b;
+        border: 2px solid #0b830b;
+        color: white;
     }
 `
 
@@ -127,7 +135,7 @@ const EditTrail = ({ setTrails }) => {
                             id="difficulty"
                             name="difficulty"
                             type="text"
-                            value={formData?.difficulty}
+                            value= {formData?.difficulty}
                             onChange={handleChange}
                         />
                     </div>
