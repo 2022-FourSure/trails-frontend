@@ -2,17 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams, Link, useNavigate } from "react-router-dom";
 import styled from 'styled-components'
+import Review from "../components/Review";
 
 const PageContainer = styled.div`
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `
-
 const TrailDetailContainer = styled.div`
     display: flex;
     align-content: center;
     justify-content: center;
 `
-
 const ImageContainer = styled.div`
     align-items: center;
     img {
@@ -20,13 +19,11 @@ const ImageContainer = styled.div`
         margin: 40px 40px;
     }
 `
-
 const DetailsContainer = styled.div`
     align-items: center;
     width: 40vw;
     margin: 20px 40px;
 `
-
 const TrailUpdates = styled.div`
     margin-top: 15px;
     display: flex; 
@@ -43,65 +40,52 @@ const TrailUpdates = styled.div`
         cursor: pointer;
     }
 `
-
-const TrailDetails = ({ trails, deleteTrailFromState}) => {
-    const initialState = {
-        content: "",
-        rating: "",
-        userId: "",
-        trailId: "",
-    }
-
-    // const navigate = useNavigate();
+const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
+    const initialState = {content: '', rating: 5}
     const [formData, setFormData] = useState(initialState);
-    const [trail, setTrail] = useState({});
-    const [reviews, setReviews] = useState([]);
     const { id } = useParams();
-    const navigate = useNavigate()
+    const [trail, setTrail] = useState({});
+    const [reviews, setReviews] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
-        // CC: THIS NEEDS TO BE UPDATED WITH BACKEND FOR REVIEWS
         fetch(`http://localhost:8000/trails/${id}`)
             .then((res) => res.json())
             .then((json) => {
+                console.log('json', json);
                 setTrail(json);
-                console.log(json);
             })
             .catch(console.error);
-    }, [id]);
+    }, [])
 
-     // Function to add a review to state
-     const addReview = (review) => {
-        setReviews([...reviews, review])
-      }
-      // Function to remove a review from state
-      const deleteReview = (id) => {
-        setReviews(reviews.filter(review => review._id !== id))
-      }
-
-    // CC's NOTES FROM BILLIE, PLEASE KEEP FOR NOW
-    // Do reviews.find => give me all reviews wehere ID is this trailID
-    // If you associate a trail to review, or review to a trail
-    // As long as your post body has your ID in it, you don't need your trail ID
-    // Then you do your update/delete or wahtever you're trying to do
+    // CC: I WROTE THIS BUT AM NOT SURE IF THSI IS THE BEST WAY TO DO THIS, IN SEPARATE USEEFFECT
+    useEffect(() => {
+        setReviews(trail.reviews)
+    }, [trail]);
 
     // Function to handle updating the form data
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value })
     }
 
-    // CC: THIS WILL BE UPDATED TO POST TO THE CORRECT BACKEND REVIEWS ROUTE
+    // Function to handle submit of a new review for the hike
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(formData)
-        axios.post("http://localhost:8000/trails/", formData)
-        .then((res) => {
+        axios.post(`http://localhost:8000/trails/${id}/reviews`, formData)
+        .then((json) => {
+            console.log(json)
             setFormData(initialState)
-            addReview(res.data)
-            // navigate("/", { replace: true })
+            setTrail(json)
+            navigate(`/trails/${id}`, { replace: true })
         })
     }
 
+    // CC: CONSOLE LOGS TO BE DELETED
+    console.log('trail.reviews: ', trail.reviews)
+    console.log('reviews: ', reviews)
+
+    // Function that deletes the trail
     const deleteTrail = (id) => {
         console.log(trails)
         console.log(id)
@@ -131,8 +115,8 @@ const TrailDetails = ({ trails, deleteTrailFromState}) => {
                     </div>
                     {/* HR: Should ONLY be available to logged in user. Currently active for test purposes */}
                     <TrailUpdates>
-                        <Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link>
-                        <button onClick={() => deleteTrail(trail._id)}>Delete</button>
+                        <div type="button" className="btn btn-secondary text-light"><Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link></div>
+                        <div type="button" className="btn btn-danger" onClick={() => deleteTrail(trail._id)}>Delete</div>
                     </TrailUpdates>
                 </DetailsContainer>
             </TrailDetailContainer>
@@ -152,7 +136,9 @@ const TrailDetails = ({ trails, deleteTrailFromState}) => {
                     />
 
                     <label htmlFor="rating">Rating</label>
+                    
                     <select
+                        value={formData.rating}
                         id="rating"
                         name="rating"
                         type="text"
@@ -168,7 +154,18 @@ const TrailDetails = ({ trails, deleteTrailFromState}) => {
                     <input type="submit" value="Submit" />
                 </form>
                 <div>
-                    {console.log(trails?.reviews)}
+                    <h2>Reviews</h2>
+                    {/* CC: NEED TO GET CONDITIONAL LOGIC IN HERE TO CHECK FOR REVIEWS BEFORE YOU RENDER THIS BUT IT WORKS ONCE YOU HAVE REVIEWS IN STATE */}
+                    {/* {reviews.map(review => {
+                        return <Review review={review} key={review._id}  />
+                    })} */}
+    
+                    {/* CC: I WAS TRYING TO USE REACT FRAGMENTS TO WRITE JS LOGIC FOR IF REVIEWS ARE THERE OR NOT */}
+                    {/* // <> */}
+                    {/* // {(if (reviews !== undefined) {reviews.map(review => return <Review review={review} key={review._id} />})} */}
+                    {/* // </> */}
+
+
                 </div>
             </div>
         </PageContainer>
