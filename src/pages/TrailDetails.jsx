@@ -212,10 +212,11 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                 <div>
                     <h2>Reviews</h2>
                     {/* CC: NEED TO GET CONDITIONAL LOGIC IN HERE TO CHECK FOR REVIEWS BEFORE YOU RENDER THIS BUT IT WORKS ONCE YOU HAVE REVIEWS IN STATE */}
-                    {/* {reviews.map(review => {
-                        return <Review review={review} key={review._id}  />
-                    })} */}
-    
+                    {/* { reviews ? reviews.map(review => {
+                        return <Review review={review} key={review._id}  /> })
+                        : null
+                    }
+     */}
                     {/* CC: I WAS TRYING TO USE REACT FRAGMENTS TO WRITE JS LOGIC FOR IF REVIEWS ARE THERE OR NOT */}
                     {/* // <> */}
                     {/* // {(if (reviews !== undefined) {reviews.map(review => return <Review review={review} key={review._id} />})} */}
