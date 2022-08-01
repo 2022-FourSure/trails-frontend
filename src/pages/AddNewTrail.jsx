@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
 import styled from 'styled-components'
@@ -51,7 +51,13 @@ const FormStyle = styled.div`
     }
 `
 
-const AddNewTrail = ({ addTrail }) => {
+
+
+    const AddNewTrail = ({ addTrail, user, getUser, userLoading  }) => {
+    useEffect(() => {
+        getUser()
+    })
+
     const initialState = {
         name: "",
         location: "",

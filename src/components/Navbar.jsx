@@ -1,7 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import LogoutComponent from "./LogoutComponent";
+import UserContext from '../contexts/UserContext';
+
+const loggedoutLinks = [
+  { path: '/login', text: 'Login' },
+  { path: '/register', text: 'Register' }
+]
+
+const LoggedoutNavLinks = () => {
+  return loggedoutLinks.map((loggedoutLink) => (
+    <Link key={loggedoutLink.text} to={loggedoutLink.path}>{loggedoutLink.text}</Link>
+  ))
+}
 
 const Navbar = () => {
+  const { loggedIn } = useContext(UserContext);
   return (
     <nav className="navbar navbar-expand-md bg-white navbar-light">
       <div className="container emphasis-font">
@@ -29,8 +43,8 @@ const Navbar = () => {
 
         <div className='collapse navbar-collapse' id='navmenu'>
           <ul className='navbar-nav ms-auto'>
-              {/* <li className='nav-item'><Link to='/auth/login'>Log In</Link></li> */}
-              {/* <li className='nav-item'><Link to='/auth/signup'>Sign Up</Link></li>   */}
+            {!loggedIn ? <LoggedoutNavLinks /> : null}
+            {loggedIn ? <LogoutComponent /> : null}
               {/* <li className='nav-item'><Link to='/trails/new'>Create New Trail</Link></li> */}
               
               <li className='nav-item'>
