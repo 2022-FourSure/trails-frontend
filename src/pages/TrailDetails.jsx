@@ -95,7 +95,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
     const [formData, setFormData] = useState(initialState);
     const { id } = useParams();
     const [trail, setTrail] = useState({});
-    const [reviews, setReviews] = useState({});
+    const [reviews, setReviews] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -104,14 +104,10 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
             .then((json) => {
                 console.log('json', json);
                 setTrail(json);
+                setReviews(json.reviews);
             })
             .catch(console.error);
     }, [])
-
-    // CC: I WROTE THIS BUT AM NOT SURE IF THSI IS THE BEST WAY TO DO THIS, IN SEPARATE USEEFFECT
-    useEffect(() => {
-        setReviews(trail.reviews)
-    }, [trail]);
 
     // Function to handle updating the form data
     const handleChange = (e) => {
@@ -211,16 +207,10 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                 </form>
                 <div>
                     <h2>Reviews</h2>
-                    {/* CC: NEED TO GET CONDITIONAL LOGIC IN HERE TO CHECK FOR REVIEWS BEFORE YOU RENDER THIS BUT IT WORKS ONCE YOU HAVE REVIEWS IN STATE */}
-                    {/* {reviews.map(review => {
-                        return <Review review={review} key={review._id}  />
-                    })} */}
-    
-                    {/* CC: I WAS TRYING TO USE REACT FRAGMENTS TO WRITE JS LOGIC FOR IF REVIEWS ARE THERE OR NOT */}
-                    {/* // <> */}
-                    {/* // {(if (reviews !== undefined) {reviews.map(review => return <Review review={review} key={review._id} />})} */}
-                    {/* // </> */}
-
+                    { reviews ? reviews.map(review => {
+                        return <Review review={review} key={review._id}  /> })
+                        : null
+                    }
 
                 </div>
             </ReviewsContainer>
