@@ -7,8 +7,11 @@ const TrailContainer = styled.div`
   flex-direction: column;
   width: 30vw;
   min-width: 200px;
-  margin: 10px auto;
-  box-shadow: 5px 5px 15px #e0dede;
+  margin: 0 auto;
+  margin-top: -85px;
+  z-index: 2;
+  box-shadow: 5px 5px 15px #d3d3d3;
+  
 `
 
 const TrailDetail = styled.div`
