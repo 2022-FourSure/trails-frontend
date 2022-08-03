@@ -12,7 +12,7 @@ const HomepageBody = styled.div`
 const BackgroundImage = styled.div`
     opacity: 0.35;
     img {
-    width: 100%;
+        width: 100%;
     }
 `
 const Home = ({trails, updateTrailState}) => {
@@ -20,7 +20,9 @@ const Home = ({trails, updateTrailState}) => {
         <HomepageBody>
             <h1>Take a Hike</h1>
             <BackgroundImage>
-                <img src="/assets/background.png" alt="background" />
+                <div>
+                    <img src="/assets/background_image.jpg" alt="background" />
+                </div>
             </BackgroundImage>
             <div>
                 <Trails trails={trails} updateTrailState={updateTrailState}/>

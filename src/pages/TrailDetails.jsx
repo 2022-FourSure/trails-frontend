@@ -53,7 +53,7 @@ const ReviewsContainer = styled.div`
     }
     textarea {
         width: 75vw;
-        height: 15vh;
+        height: 10vh;
     }
 `
 
