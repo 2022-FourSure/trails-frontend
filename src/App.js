@@ -38,7 +38,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home trails={trails} deleteTrailFromState={deleteTrailFromState}/>} />
+        <Route path='/trails' element={<Home trails={trails} deleteTrailFromState={deleteTrailFromState}/>} />
         <Route path='/trails/:id' element={<TrailDetails trails={trails} setTrails={setTrails} deleteTrailFromState={deleteTrailFromState}/>} />
         <Route path='/trails/new' element={<AddNewTrail addTrailToState={addTrailToState}/>} />
         <Route path='/trails/edit/:id' element={<EditTrail trails={trails} setTrails={setTrails}/>} />
