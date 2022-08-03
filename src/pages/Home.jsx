@@ -1,27 +1,35 @@
-import React, { useState, useEffect } from "react";
 import Trails from "../components/Trails";
+import styled from 'styled-components'
 
-const Home = () => {
-    const [trails, setTrails] = useState([]);
+const HomepageBody = styled.div`
+    h1 {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 5vw;
+        text-align: center;
+    }
+`
 
-    useEffect(() => {
-        // HR: Wrote out the whole link to hit PORT 8000
-        fetch("http://localhost:8000/trails/")
-            .then((res) => res.json())
-            .then((json) => {
-                setTrails(json);
-            })
-            .catch(console.error);
-    }, []);
-
+const BackgroundImage = styled.div`
+    opacity: 0.35;
+    img {
+        width: 100%;
+    }
+    margin-bottom: -50px;
+`
+const Home = ({trails, updateTrailState}) => {
     return (
-        <div>
-            {/* HR: Potential App Name? */}
-            <h1>Take a Hike</h1>
+        <HomepageBody>
+            {/* <h1>Take a Hike</h1> */}
+
+            <BackgroundImage>
+                <div>
+                    <img src="/assets/background_image.jpg" alt="background" />
+                </div>
+            </BackgroundImage>
             <div>
-                <Trails trails={trails} setTrails={setTrails} />
+                <Trails trails={trails} updateTrailState={updateTrailState}/>
             </div>
-        </div>
+        </HomepageBody>
     );
 };
 
