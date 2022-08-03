@@ -14,11 +14,13 @@ const BackgroundImage = styled.div`
     img {
         width: 100%;
     }
+    margin-bottom: -50px;
 `
 const Home = ({trails, updateTrailState}) => {
     return (
         <HomepageBody>
-            <h1>Take a Hike</h1>
+            {/* <h1>Take a Hike</h1> */}
+
             <BackgroundImage>
                 <div>
                     <img src="/assets/background_image.jpg" alt="background" />
