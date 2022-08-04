@@ -157,6 +157,10 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                     {/* HR: Should ONLY be available to logged in user. Currently active for test purposes */}
 
                     <TrailUpdates>
+
+                        {/* <div type="button" className="btn btn-primary"><Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link></div>
+                        <div type="button" className="btn btn-danger" onClick={() => deleteTrail(trail._id)}>Delete</div> */}
+
                         <div 
                             type="button" 
                             className="btn edit-btn text-white"
@@ -175,10 +179,6 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                             >
                                 Delete
                         </div>
-
-                        {/* <div type="button" className="btn btn-primary"><Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link></div>
-                        <div type="button" className="btn btn-danger" onClick={() => deleteTrail(trail._id)}>Delete</div> */}
-
                     </TrailUpdates>
                 </DetailsContainer>
             </TrailDetailContainer>
