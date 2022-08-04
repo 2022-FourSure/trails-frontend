@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.btn-primary {
+  color: var(--button-color);
+  background-color: var(--button-background-color);
+  border-radius: var(--border-radius);
+}
+
+.btn-primary {
+  background-color: #f9ac42;
+  border: 2px solid #f9ac42;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #f9ac42;
+  border: 2px solid #f9ac42;
+  border-radius: 5px;
+}
