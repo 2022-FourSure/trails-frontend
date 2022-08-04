@@ -7,10 +7,13 @@ import Reviews from "../components/Reviews";
 
 const PageContainer = styled.div`
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 1.5vw;
+    font-size: 2vw;
+    @media screen and (max-width: 766px) {
+      font-size: 2vw;
+    }
 `
 const TrailDetailContainer = styled.div`
-    display: flex;
+    display: flexbox;
     align-content: center;
     justify-content: center;
 `
@@ -29,7 +32,9 @@ const DetailsContainer = styled.div`
     h2 {
         font-size: 2.5vw;
     }
-
+    @media screen and (max-width: 766px) {
+      font-size: 2vw;
+    }
 `
 const TrailDescription = styled.div`
     margin: 2vw 3.5vw;

@@ -5,8 +5,10 @@ import styled from 'styled-components'
 const TrailContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30vw;
-  min-width: 200px;
+  width: 31%;
+  @media screen and (max-width: 766px) {
+    width: 50%;
+  }
   margin: 0 auto;
   z-index: 2;
   box-shadow: 5px 5px 15px #d3d3d3;
@@ -18,8 +20,14 @@ const TrailDetail = styled.div`
   text-align: center;
   font-size: 1.6vw;
   margin: 10px 15px;
+  @media screen and (max-width: 766px) {
+    font-size: 2.5vw;
+  }
   h3 {
     font-size: 1.6vw;
+    @media screen and (max-width: 766px) {
+      font-size: 2.5vw;
+    }
   }
 `
 const linkStyle = {
@@ -29,8 +37,6 @@ const linkStyle = {
 const TrailImage = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30vw;
-  min-width: 200px;
   img {
     height: 32vw;
     object-fit: cover;
