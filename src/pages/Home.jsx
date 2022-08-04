@@ -18,11 +18,11 @@ const BackgroundImage = styled.div`
 `
 const Home = ({trails, updateTrailState}) => {
     return (
-        <HomepageBody>
+        <HomepageBody className="has-bg-img">
             {/* <h1>Take a Hike</h1> */}
 
             <BackgroundImage>
-                <div>
+                <div class="bg-img">
                     <img src="/assets/background_image.jpg" alt="background" />
                 </div>
             </BackgroundImage>
