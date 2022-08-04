@@ -192,7 +192,6 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
 
             {/* Reviews section */}
 
-
             <Reviews 
                 reviews={reviews} 
                 handleSubmit={handleSubmit}
