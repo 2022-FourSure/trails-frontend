@@ -32,7 +32,7 @@ const FormStyle = styled.div`
     }
     input[type=submit] {
         background-color: white;
-        border: 2px solid #959393;
+        border: 2px solid #095479;
         border-radius: 4px;
         color: black;
         padding: 5px 10px;
@@ -46,8 +46,8 @@ const FormStyle = styled.div`
     }
 
     input[type=submit]:hover {
-        background-color: #0b830b;
-        border: 2px solid #0b830b;
+        background-color: #095479;
+        border: 2px solid #095479;
         color: white;
     }
 `

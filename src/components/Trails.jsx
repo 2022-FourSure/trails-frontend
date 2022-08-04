@@ -6,7 +6,7 @@ const TrailsContainer = styled.div`
     min-width: 100vw;
     display:  flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 20px;
 `
 
 const Trails = ({ trails }) => {
