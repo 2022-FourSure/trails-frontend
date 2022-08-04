@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams, Link, useNavigate } from "react-router-dom";
 import styled from 'styled-components'
 import Review from "../components/Review";
+import Reviews from "../components/Reviews";
 
 const PageContainer = styled.div`
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -30,17 +31,14 @@ const DetailsContainer = styled.div`
     }
 
 `
-
 const TrailDescription = styled.div`
     margin: 2vw 3.5vw;
 `
-
 const TrailUpdates = styled.div`
     margin-top: 15px;
     display: flex; 
     gap: 10px;
 `
-
 const ReviewsContainer = styled.div`
     background-color: #e9e9e9;
     margin: 2vw 3.5vw;
@@ -56,7 +54,6 @@ const ReviewsContainer = styled.div`
         height: 10vh;
     }
 `
-
 const RatingContainer = styled.div`
     display: inline-flex;
     margin: 0 5px;
@@ -64,7 +61,6 @@ const RatingContainer = styled.div`
         margin-left: 3px
     }
 `
-
 const SubmitButton = styled.div`
     display: inline-flex;
     margin: 0 5px;
@@ -97,6 +93,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
     const [trail, setTrail] = useState({});
     const [reviews, setReviews] = useState(null);
     const navigate = useNavigate();
+    // const [isTrail]
 
     useEffect(() => {
         fetch(`http://localhost:8000/trails/${id}`)
@@ -118,18 +115,18 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(formData)
+        console.log('id:', id)
         axios.post(`http://localhost:8000/trails/${id}/reviews`, formData)
         .then((json) => {
-            console.log(json)
+            console.log(json.data)
             setFormData(initialState)
-            setTrail(json)
+            setTrail(json.data)
+            console.log('json.data.reviews: ', json.data.reviews)
+            setReviews(json.data.reviews)
+            // CC: THIS WON'T REFRESH
             navigate(`/trails/${id}`, { replace: true })
         })
     }
-
-    // CC: CONSOLE LOGS TO BE DELETED
-    console.log('trail.reviews: ', trail.reviews)
-    console.log('reviews: ', reviews)
 
     // Function that deletes the trail
     const deleteTrail = (id) => {
@@ -170,48 +167,60 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
             {/* ~~~~~~~~~~~Trail Detail Section~~~~~~~~~~~ */}
 
             {/* Reviews section */}
+
+
+            {/* CC'S TEST SECTION */}
+            <Reviews 
+                reviews={reviews} 
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+                setTrail={setTrail}
+                setReviews={setReviews}
+                setFormData={setFormData}
+            />
+            {/* CC'S TEST SECTION */}
+
             <ReviewsContainer>
                 <h2>Add A Review</h2>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="content"></label>
-                    <div>
-                        <textarea
-                            id="content"
-                            name="content"
-                            type="text"
-                            onChange={handleChange}
-                        />
-                    </div>
+                     <label htmlFor="content"></label>
+                        <div>
+                            <textarea
+                                id="content"
+                                name="content"
+                                type="text"
+                                onChange={handleChange}
+                            />
+                        </div>
 
-                    <RatingContainer>
-                        <label htmlFor="rating">Rating</label>
-                        
-                        <select
-                            value={formData.rating}
-                            id="rating"
-                            name="rating"
-                            type="text"
-                            onChange={handleChange}
-                        >
-                            <option value="5">5</option>
-                            <option value="4">4</option>
-                            <option value="3">3</option>
-                            <option value="2">2</option>
-                            <option value="1">1</option>
-                        </select>
-                    </RatingContainer>
+                        <RatingContainer>
+                            <label htmlFor="rating">Rating</label>
+                            
+                            <select
+                                value={formData.rating}
+                                id="rating"
+                                name="rating"
+                                type="text"
+                                onChange={handleChange}
+                            >
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                        </RatingContainer>
 
-                    <SubmitButton>
-                        <input type="submit" value="Submit" />
-                    </SubmitButton>
-                </form>
+                        <SubmitButton>
+                            <input type="submit" value="Submit" />
+                        </SubmitButton>
+                    </form>
                 <div>
                     <h2>Reviews</h2>
                     { reviews ? reviews.map(review => {
                         return <Review review={review} key={review._id}  /> })
                         : null
                     }
-
                 </div>
             </ReviewsContainer>
         </PageContainer>
