@@ -49,6 +49,7 @@ const Trail = ({ trail }) => {
         <Link to={`/trails/${trail._id}`} style={linkStyle}>More Details</Link>
       </TrailDetail>
     </TrailContainer>
+
   )
 }
 

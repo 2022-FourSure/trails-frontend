@@ -1,3 +1,17 @@
+.submit-btn {
+  background-color: #095479;
+}
+
+.edit-btn {
+  background-color: #f9ac42;
+  width: 75px;
+}
+
+.delete-btn {
+  background-color: #f54333;
+  width: 75px;
+}
+
 body {
   /* background: url('../public/assets/background_image.jpg');
   -webkit-background-size: cover;
