@@ -179,6 +179,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                             >
                                 Delete
                         </div>
+
                     </TrailUpdates>
                 </DetailsContainer>
             </TrailDetailContainer>
