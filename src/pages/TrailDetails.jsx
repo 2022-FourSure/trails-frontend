@@ -175,6 +175,10 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                             >
                                 Delete
                         </div>
+
+                        {/* <div type="button" className="btn btn-primary"><Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link></div>
+                        <div type="button" className="btn btn-danger" onClick={() => deleteTrail(trail._id)}>Delete</div> */}
+
                     </TrailUpdates>
                 </DetailsContainer>
             </TrailDetailContainer>
