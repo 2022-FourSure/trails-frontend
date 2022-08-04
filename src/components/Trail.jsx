@@ -8,7 +8,6 @@ const TrailContainer = styled.div`
   width: 30vw;
   min-width: 200px;
   margin: 0 auto;
-  /* margin-top: -85px; */
   z-index: 2;
   box-shadow: 5px 5px 15px #d3d3d3;
   
@@ -49,6 +48,7 @@ const Trail = ({ trail }) => {
         <Link to={`/trails/${trail._id}`} style={linkStyle}>More Details</Link>
       </TrailDetail>
     </TrailContainer>
+
   )
 }
 

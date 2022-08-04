@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home'
 import TrailDetails from './pages/TrailDetails' ;
@@ -38,6 +38,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
+        <Route path='/' element={ <Navigate to='/trails' /> }/>
         <Route path='/trails' element={<Home trails={trails} deleteTrailFromState={deleteTrailFromState}/>} />
         <Route path='/trails/:id' element={<TrailDetails trails={trails} setTrails={setTrails} deleteTrailFromState={deleteTrailFromState}/>} />
         <Route path='/trails/new' element={<AddNewTrail addTrailToState={addTrailToState}/>} />
