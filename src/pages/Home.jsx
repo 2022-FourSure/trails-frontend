@@ -14,7 +14,7 @@ const BackgroundImage = styled.div`
     img {
         width: 100%;
     }
-    margin-bottom: -50px;
+    margin-bottom: -100px;
 `
 const Home = ({trails, updateTrailState}) => {
     return (

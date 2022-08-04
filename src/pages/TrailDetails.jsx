@@ -153,10 +153,33 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                     <p><b>Difficulty:</b> Level {trail.difficulty}</p>
                     <p><b>Length:</b> {trail.length} mile(s)</p>
                     <p><b>Elevation Change:</b> {trail.elevationChange}</p>
+
                     {/* HR: Should ONLY be available to logged in user. Currently active for test purposes */}
+
                     <TrailUpdates>
-                        <div type="button" className="btn btn-primary"><Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link></div>
-                        <div type="button" className="btn btn-danger" onClick={() => deleteTrail(trail._id)}>Delete</div>
+
+                        {/* <div type="button" className="btn btn-primary"><Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link></div>
+                        <div type="button" className="btn btn-danger" onClick={() => deleteTrail(trail._id)}>Delete</div> */}
+
+                        <div 
+                            type="button" 
+                            className="btn edit-btn text-white"
+                            onClick={() => navigate(`/trails/edit/${trail._id}`)}
+                            >
+                                Edit
+                                {/* <Link to={`/trails/edit/${trail._id}`}>
+                                    Edit Trail
+                                </Link> */}
+                        </div>
+
+                        <div 
+                            type="button" 
+                            className="btn delete-btn text-white" 
+                            onClick={() => deleteTrail(trail._id)}
+                            >
+                                Delete
+                        </div>
+
                     </TrailUpdates>
                 </DetailsContainer>
             </TrailDetailContainer>
@@ -169,7 +192,6 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
             {/* Reviews section */}
 
 
-            {/* CC'S TEST SECTION */}
             <Reviews 
                 reviews={reviews} 
                 handleSubmit={handleSubmit}
@@ -178,9 +200,10 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                 setReviews={setReviews}
                 setFormData={setFormData}
             />
-            {/* CC'S TEST SECTION */}
 
-            <ReviewsContainer>
+
+
+            {/* <ReviewsContainer>
                 <h2>Add A Review</h2>
                 <form onSubmit={handleSubmit}>
                      <label htmlFor="content"></label>
@@ -222,7 +245,8 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                         : null
                     }
                 </div>
-            </ReviewsContainer>
+            </ReviewsContainer> */}
+
         </PageContainer>
     );
 };
