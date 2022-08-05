@@ -51,11 +51,11 @@ export const LoginComponent = () => {
   };
 
   return (
-    <Container>
+    <Container className='mt-4'>
       <Row>
         <Col md={6} className='mx-auto'>
           <Card className='card auth-card'>
-            <Card.Title>Login</Card.Title>
+            <h4>Login</h4>
             {loginError.length > 0 ? <Alert variant={'danger'}>{loginError}</Alert> : null}
             <Card.Body>
               <Form onSubmit={handleLogin}>
@@ -82,7 +82,7 @@ export const LoginComponent = () => {
                   />
                 </Form.Group>
                 <div className="d-grid">
-                  <Button variant="primary" type="submit" size='lg'>
+                  <Button variant="primary" type="submit" className='uppercase bs-bg-primary' size='lg'>
                     Login
                   </Button>
                 </div>

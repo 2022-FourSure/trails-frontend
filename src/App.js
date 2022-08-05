@@ -16,12 +16,10 @@ import Loader from "./components/Loader";
 import UserContext from './contexts/UserContext';
 import useFetchUser from "./hooks/useFetchUser";
 
-function App() {
 axios.defaults.withCredentials = true;
 
 function App() {
   const { loadingUser, loggedIn, setLoggedIn, fetchUser } = useFetchUser();
-
   // Set state for trails and reviews in the app
   const [loadingTrails, setLoadingTrails] = useState(false);
   const [trails, setTrails] = useState([]);
@@ -124,6 +122,5 @@ function App() {
         </Routes>
     </UserContext.Provider>
   );
- }
 }
 export default App;

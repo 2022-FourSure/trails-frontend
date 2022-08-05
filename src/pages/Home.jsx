@@ -20,7 +20,7 @@ const Home = ({ trails, updateTrailState }) => {
   return (
     <HomepageBody>
       <BackgroundImage>
-        <div class="bg-img">
+        <div className="bg-img">
           <img src="/assets/background_image.jpg" alt="background" />
         </div>
       </BackgroundImage>

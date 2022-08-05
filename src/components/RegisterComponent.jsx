@@ -5,6 +5,7 @@ import { Button, Form, Container, Row, Card, Alert, Col } from "react-bootstrap"
 import cacheUser from "../helpers/cacheUser";
 import isSuccesfulStatus from "../helpers/isSuccessfulStatus";
 import UserContext from '../contexts/UserContext';
+import getAxiosError from "../helpers/getAxiosError";
 
 export const RegisterComponent = () => {
   const navigate = useNavigate()
@@ -36,16 +37,16 @@ export const RegisterComponent = () => {
         setRegisterError(error);
       }
     } catch (error) {
-      setRegisterError(error.response.data.error)
+      setRegisterError(getAxiosError(error))
       console.log("error at register ", error);
     }
   };
   return (
-    <Container>
+    <Container className='mt-4'>
       <Row>
         <Col md={6} className='mx-auto'>
           <Card className='card auth-card'>
-            <Card.Title>Sign Up</Card.Title>
+            <h4>Sign Up</h4>
             {registerError.length > 0 ? <Alert variant={'danger'}>{registerError}</Alert> : null}
             <Card.Body>
               <Form onSubmit={handleRegister}>
@@ -83,7 +84,7 @@ export const RegisterComponent = () => {
                   />
                 </Form.Group>
                 <div className="d-grid">
-                  <Button variant="primary" type="submit" size='lg'>
+                  <Button variant="primary" className='uppercase bs-bg-primary' type="submit" size='lg'>
                     Sign Up
                   </Button>
                 </div>

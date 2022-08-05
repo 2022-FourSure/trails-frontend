@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from 'react-bootstrap'
 import removeCachedUserAndLogOut from '../helpers/removeCachedUserAndLogOut';
 import UserContext from '../contexts/UserContext';
 
@@ -22,7 +23,7 @@ export const LogoutComponent = () => {
 
   return (
     <div>
-      {loggedIn ? <button onClick={handleLogout}>Logout</button> : null}
+      {loggedIn ? <Button variant="link" className='no-decoration' onClick={handleLogout}>Logout</Button>  : null}
     </div>
   );
 };
