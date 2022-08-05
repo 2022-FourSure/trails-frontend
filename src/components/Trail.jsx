@@ -55,7 +55,7 @@ const Trail = ({ trail }) => {
             className="card-img-top trail-img-sm" 
             />
         <div className="card-body">
-          <h3 className="card-title">{trail.name}</h3>
+          <h5 className="card-title">{trail.name}</h5>
           <p>{trail.location}</p>
           <Link to={`/trails/${trail._id}`} style={linkStyle}>More Details</Link>
         </div>

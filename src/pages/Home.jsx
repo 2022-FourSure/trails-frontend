@@ -23,10 +23,13 @@ const Home = ({trails, updateTrailState}) => {
 
             {/* <BackgroundImage> */}
             <div className="box">
-                <img className="bg-img" src="/assets/background_image.jpg" alt="background" />   
+                <img 
+                    className="bg-img" 
+                    src="/assets/background_image.jpg" 
+                    alt="background" />   
             </div>
             {/* </BackgroundImage> */}
-            <div className="box-overlay">
+            <div className="quote-overlay">
                 <figure className="text-center">
                         <blockquote className="blockquote h5">
                             <p>There are no shortcuts to any place worth going.</p>

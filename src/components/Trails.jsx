@@ -17,7 +17,7 @@ const Trails = ({ trails }) => {
     // <TrailsContainer>
 
     <div className='container'>
-      <div className="row">
+      <div className="row g-4">
 
           {trails.map((trail) => {
             return (

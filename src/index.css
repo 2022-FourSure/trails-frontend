@@ -1,5 +1,5 @@
 .home {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .box {
   margin-top: 150px;
@@ -7,15 +7,15 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 1;
-  left: 0;
+  top: 80px;
 }
 .bg-img {
   width: 100%;
+  z-index: 1;
 }
-.box-overlay {
-  z-index: 9;
-  margin: 150px;
+.quote-overlay {
+  z-index: 2;
+  margin-bottom: 100px;
 }
 .submit-btn {
   background-color: #095479;
@@ -37,10 +37,12 @@
 .delete-btn:hover {
   background-color: #f7938b;
 }
+.emphasis-font {
+  font-family: 'Libre Franklin', sans-serif;
+}
 .trail-img-sm {
-  height: 32vh;
-  min-height: 320px;
-  /* width: 100%; */
+  height: 20vw;
+  min-height: 350px;
   object-fit: cover;
 }
 
@@ -50,6 +52,7 @@ body {
   -moz-background-size: cover;
   background-size:cover;
   -o-background-size: cover; */
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
