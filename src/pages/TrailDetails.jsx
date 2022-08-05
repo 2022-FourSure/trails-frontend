@@ -96,7 +96,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
     // const [isTrail]
 
     useEffect(() => {
-        fetch(`http://localhost:8000/trails/${id}`)
+        fetch(`http://take-a-hike-backend.herokuapp.com/trails/${id}`)
             .then((res) => res.json())
             .then((json) => {
                 console.log('json', json);
@@ -116,7 +116,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
         e.preventDefault()
         console.log(formData)
         console.log('id:', id)
-        axios.post(`http://localhost:8000/trails/${id}/reviews`, formData)
+        axios.post(`http://take-a-hike-backend.herokuapp.com/trails/${id}/reviews`, formData)
         .then((json) => {
             console.log(json.data)
             setFormData(initialState)
@@ -132,7 +132,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
     const deleteTrail = (id) => {
         console.log(trails)
         console.log(id)
-        axios.delete(`http://localhost:8000/trails/${id}`)
+        axios.delete(`http://take-a-hike-backend.herokuapp.com/trails/${id}`)
         .then(res => {
             console.log(res)
             deleteTrailFromState(id)

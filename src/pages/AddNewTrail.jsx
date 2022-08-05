@@ -84,7 +84,7 @@ const AddNewTrail = ({ addTrail }) => {
         e.preventDefault()
         console.log('formData', formData)
         // multipart/form-data is needed so backend knows to look for files
-        axios.post("http://localhost:8000/trails/", formData, {headers: {"Content-Type": "multipart/form-data"}})
+        axios.post("http://take-a-hike-backend.herokuapp.com/trails", formData, {headers: {"Content-Type": "multipart/form-data"}})
         .then((res) => {
             setFormData(initialState)
             addTrail(res.data)
