@@ -7,9 +7,7 @@ import Reviews from "../components/Reviews";
 
 const PageContainer = styled.div`
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 2vw;
     @media screen and (max-width: 766px) {
-      font-size: 2vw;
     }
 `
 const TrailDetailContainer = styled.div`
@@ -30,10 +28,8 @@ const DetailsContainer = styled.div`
     margin: auto;
     width: 40vw;
     h2 {
-        font-size: 2.5vw;
     }
     @media screen and (max-width: 766px) {
-      font-size: 2vw;
     }
 `
 const TrailDescription = styled.div`
@@ -50,7 +46,6 @@ const ReviewsContainer = styled.div`
     padding: 5px 10px;
     text-align: center;
     h2 {
-        font-size: 2.5vw;
         padding: 1.5vw;
         margin: 0;
     }
@@ -146,6 +141,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
       }
 
     return (
+
         <PageContainer>
             {/* ~~~~~~~~~~~Trail Detail Section~~~~~~~~~~~ */}
             <TrailDetailContainer>
@@ -162,10 +158,6 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                     {/* HR: Should ONLY be available to logged in user. Currently active for test purposes */}
 
                     <TrailUpdates>
-
-                        {/* <div type="button" className="btn btn-primary"><Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link></div>
-                        <div type="button" className="btn btn-danger" onClick={() => deleteTrail(trail._id)}>Delete</div> */}
-
                         <div 
                             type="button" 
                             className="btn edit-btn text-white"
@@ -203,55 +195,55 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                 setTrail={setTrail}
                 setReviews={setReviews}
                 setFormData={setFormData}
-            />
+                />
 
 
 
             {/* <ReviewsContainer>
                 <h2>Add A Review</h2>
                 <form onSubmit={handleSubmit}>
-                     <label htmlFor="content"></label>
-                        <div>
+                <label htmlFor="content"></label>
+                <div>
                             <textarea
-                                id="content"
-                                name="content"
-                                type="text"
+                            id="content"
+                            name="content"
+                            type="text"
                                 onChange={handleChange}
-                            />
-                        </div>
+                                />
+                                </div>
 
-                        <RatingContainer>
-                            <label htmlFor="rating">Rating</label>
+                                <RatingContainer>
+                                <label htmlFor="rating">Rating</label>
                             
-                            <select
+                                <select
                                 value={formData.rating}
                                 id="rating"
                                 name="rating"
                                 type="text"
                                 onChange={handleChange}
-                            >
+                                >
                                 <option value="5">5</option>
                                 <option value="4">4</option>
                                 <option value="3">3</option>
                                 <option value="2">2</option>
                                 <option value="1">1</option>
-                            </select>
-                        </RatingContainer>
+                                </select>
+                                </RatingContainer>
 
-                        <SubmitButton>
-                            <input type="submit" value="Submit" />
-                        </SubmitButton>
-                    </form>
-                <div>
-                    <h2>Reviews</h2>
-                    { reviews ? reviews.map(review => {
-                        return <Review review={review} key={review._id}  /> })
+                                <SubmitButton>
+                                <input type="submit" value="Submit" />
+                                </SubmitButton>
+                        </form>
+                        <div>
+                        <h2>Reviews</h2>
+                        { reviews ? reviews.map(review => {
+                            return <Review review={review} key={review._id}  /> })
                         : null
                     }
-                </div>
-            </ReviewsContainer> */}
+                    </div>
+                </ReviewsContainer> */}
 
-        </PageContainer>
+            </PageContainer>
     );
 };
 

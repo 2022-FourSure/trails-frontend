@@ -188,7 +188,7 @@ const AddNewTrail = ({ addTrail }) => {
                 </div>
 
                 <div>
-                    <label htmlFor="image">Image</label>
+                    <label htmlFor="image"></label>
                     <div>
                         <input
                             id="image"
@@ -199,7 +199,7 @@ const AddNewTrail = ({ addTrail }) => {
                     </div>
                 </div>
 
-                <div>
+                <div className="m-3">
                     {/* <input type="submit" value="Submit" /> */}
                     <button 
                         type="submit" 
