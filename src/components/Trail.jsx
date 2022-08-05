@@ -45,15 +45,34 @@ const TrailImage = styled.div`
 
 const Trail = ({ trail }) => {
   return (
-    <TrailContainer>
-      <TrailImage>
-        <img src={trail.image} alt={trail.name} />
-      </TrailImage>
-      <TrailDetail>
-        <h3>{trail.name}</h3>
-        <Link to={`/trails/${trail._id}`} style={linkStyle}>More Details</Link>
-      </TrailDetail>
-    </TrailContainer>
+
+    <div className="col-xs-12 col-md-6 col-lg-4">
+
+      <div className="card">
+        <img 
+            src={trail.image} 
+            alt={trail.name} 
+            className="card-img-top trail-img-sm" 
+            />
+        <div className="card-body">
+          <h5 className="card-title">{trail.name}</h5>
+          <p>{trail.location}</p>
+          <Link to={`/trails/${trail._id}`} style={linkStyle}>More Details</Link>
+        </div>
+     </div>
+
+    </div>
+
+
+    // <TrailContainer>
+    //   <TrailImage>
+    //     <img src={trail.image} alt={trail.name} />
+    //   </TrailImage>
+    //   <TrailDetail>
+    //     <h3>{trail.name}</h3>
+    //     <Link to={`/trails/${trail._id}`} style={linkStyle}>More Details</Link>
+    //   </TrailDetail>
+    // </TrailContainer>
 
   )
 }

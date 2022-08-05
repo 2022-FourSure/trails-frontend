@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-md bg-white navbar-light">
-      <div class="container">
+    <nav className="navbar navbar-expand-md bg-white navbar-light">
+      <div className="container emphasis-font">
 
         <Link to="/trails" class="navbar-brand">
           <img 

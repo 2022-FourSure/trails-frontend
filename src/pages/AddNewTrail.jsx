@@ -200,7 +200,13 @@ const AddNewTrail = ({ addTrail }) => {
                 </div>
 
                 <div>
-                    <input type="submit" value="Submit" />
+                    {/* <input type="submit" value="Submit" /> */}
+                    <button 
+                        type="submit" 
+                        className="submit-btn btn my-2 text-white"
+                        >
+                        Submit
+                    </button>
                 </div>
             </form>
         </FormStyle>

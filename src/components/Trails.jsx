@@ -14,13 +14,22 @@ const Trails = ({ trails }) => {
   console.log('trails', trails)
 
   return (
-    <TrailsContainer>
-      {trails.map((trail) => {
-        return (
-          <Trail trail={trail} key={trail._id}/>
-        )
-      })}
-    </TrailsContainer>
+    // <TrailsContainer>
+
+    <div className='container'>
+      <div className="row g-4">
+
+          {trails.map((trail) => {
+            return (
+              <Trail trail={trail} key={trail._id}/>
+            )
+          })}        
+          
+      </div>
+
+    </div>
+
+    // </TrailsContainer>
   )
 }
 
