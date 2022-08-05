@@ -6,7 +6,7 @@ import removeCachedUserAndLogout from '../helpers/removeCachedUserAndLogOut';
 import useLoggedIn from '../hooks/useLoggedIn';
 
 const useFetchUser = () => {
-  const [loadingUser, setLoadingUser] = useState(false);
+  const [loadingUser, setLoadingUser] = useState('pending');
   const [userError, setUserError] = useState('');
   const { loggedIn, loadingLoggedIn, setLoggedIn } = useLoggedIn();
 
@@ -26,7 +26,7 @@ const useFetchUser = () => {
       }
       setLoadingUser(false);
     } catch (error) {
-      console.log('error finding user', error)
+      console.error('error fetching user', error)
       setUserError(error);
       removeCachedUserAndLogout();
     } finally {

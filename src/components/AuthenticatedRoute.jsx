@@ -1,11 +1,13 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import isLoggedIn from '../helpers/isLoggedIn';
 import UserContext from '../contexts/UserContext';
-import Loader from "../components/Loader";
+import CenteredLoader from '../components/CenteredLoader';
 
 export const AuthenticatedRoute = ({ children }) => {
-  const { loggedIn } = useContext(UserContext);
+  const { loggedIn, loadingUser } = useContext(UserContext);
+  if (loadingUser || loadingUser === 'pending') {
+    return <CenteredLoader />
+  }
   if (!loggedIn) {
     return <Navigate to='/login'></Navigate>;
   }
