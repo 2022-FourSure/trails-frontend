@@ -13,8 +13,7 @@ function App() {
   const [trails, setTrails] = useState([]);
 
     useEffect(() => {
-        // HR: Wrote out the whole link to hit PORT 8000
-        fetch("http://localhost:8000/trails/")
+        fetch("http://take-a-hike-backend.herokuapp.com/trails")
             .then((res) => res.json())
             .then((json) => {
                 setTrails(json);
