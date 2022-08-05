@@ -53,163 +53,163 @@ const FormStyle = styled.div`
 `
 
 const EditTrail = ({ setTrails }) => {
-    
-    const { id } = useParams()
-    const navigate = useNavigate()
 
-    const initialState = {
-        name: "",
-        location: "",
-        difficulty: "",
-        length: "",
-        elevationChange: "",
-        routeType: "",
-        description: "",
-        image: "",
-    }
+  const { id } = useParams()
+  const navigate = useNavigate()
 
-    const [formData, setFormData] = useState(initialState);
+  const initialState = {
+    name: "",
+    location: "",
+    difficulty: "",
+    length: "",
+    elevationChange: "",
+    routeType: "",
+    description: "",
+    image: "",
+  }
 
-        // Function to handle all form data except for the image
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.id]: e.target.value })
-    }
+  const [formData, setFormData] = useState(initialState);
 
-    // Function to handle image upload in the form
-    const handleImage = (e) => {
-        setFormData({ ...formData, [e.target.id]: e.target.files[0] })
-    }
+  // Function to handle all form data except for the image
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value })
+  }
+
+  // Function to handle image upload in the form
+  const handleImage = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.files[0] })
+  }
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.patch(`http://localhost:8000/trails/${id}`, formData)
-        .then((res) => {
-            setFormData(initialState)
-            setTrails(res.data)
-            navigate(`/`, { replace: true })
-        })
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios.patch(`http://localhost:8000/trails/${id}`, formData)
+      .then((res) => {
+        setFormData(initialState)
+        setTrails(res.data)
+        navigate(`/`, { replace: true })
+      })
+  }
 
-    useEffect(()=> {
-        axios.get(`http://localhost:8000/trails/${id}`)
-        .then(res => {
-            setFormData(res.data)
-        })
-    }, [id])
+  useEffect(() => {
+    axios.get(`http://localhost:8000/trails/${id}`)
+      .then(res => {
+        setFormData(res.data)
+      })
+  }, [id])
 
-    return (
-        <FormStyle>
-            <h2>Edit Trail</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Trail Name</label>
-                    <div>
-                        <input
-                            id="name"
-                            name="name"
-                            type="text"
-                            value={formData?.name}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+  return (
+    <FormStyle>
+      <h2>Edit Trail</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name">Trail Name</label>
+          <div>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={formData?.name}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
 
-                <div>
-                    <label htmlFor="name">Location</label>
-                    <div>
-                        <input
-                            id="location"
-                            name="location"
-                            type="text"
-                            value={formData?.location}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+        <div>
+          <label htmlFor="name">Location</label>
+          <div>
+            <input
+              id="location"
+              name="location"
+              type="text"
+              value={formData?.location}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
 
-                <div>
-                    <label htmlFor="name">Difficulty</label>
-                    <div>
-                        <input
-                            id="difficulty"
-                            name="difficulty"
-                            type="text"
-                            value= {formData?.difficulty}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+        <div>
+          <label htmlFor="name">Difficulty</label>
+          <div>
+            <input
+              id="difficulty"
+              name="difficulty"
+              type="text"
+              value={formData?.difficulty}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
 
-                <div>
-                    <label htmlFor="name">Length</label>
-                    <div>
-                        <input
-                            id="length"
-                            name="length"
-                            type="text"
-                            value={formData?.length}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+        <div>
+          <label htmlFor="name">Length</label>
+          <div>
+            <input
+              id="length"
+              name="length"
+              type="text"
+              value={formData?.length}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
 
-                <div>
-                    <label htmlFor="name">Elevation Change</label>
-                    <div>
-                        <input
-                            id="elevationChange"
-                            name="elevationChange"
-                            type="text"
-                            value={formData?.elevationChange}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+        <div>
+          <label htmlFor="name">Elevation Change</label>
+          <div>
+            <input
+              id="elevationChange"
+              name="elevationChange"
+              type="text"
+              value={formData?.elevationChange}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
 
-                <div>
-                    <label htmlFor="name">Route Type</label>
-                    <div>
-                        <input
-                            id="routeType"
-                            name="routeType"
-                            type="text"
-                            value={formData?.routeType}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+        <div>
+          <label htmlFor="name">Route Type</label>
+          <div>
+            <input
+              id="routeType"
+              name="routeType"
+              type="text"
+              value={formData?.routeType}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
 
-                <div>
-                    <label htmlFor="name">Description</label>
-                    <div>
-                        <textarea
-                            id="description"
-                            name="description"
-                            type="text"
-                            value={formData?.description}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
+        <div>
+          <label htmlFor="name">Description</label>
+          <div>
+            <textarea
+              id="description"
+              name="description"
+              type="text"
+              value={formData?.description}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
 
-                <div>
-                    <label htmlFor="name">Image</label>
-                    <div>
-                        <input
-                            id="image"
-                            name="image"
-                            type="file"
-                            onChange={handleImage}
-                        />
-                    </div>
-                </div>
-                <div>
-                    <input type="submit" value="Submit" />
-                </div>
-            </form>
-        </FormStyle>
-    )
+        <div>
+          <label htmlFor="name">Image</label>
+          <div>
+            <input
+              id="image"
+              name="image"
+              type="file"
+              onChange={handleImage}
+            />
+          </div>
+        </div>
+        <div>
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </FormStyle>
+  )
 }
 
 export default EditTrail;

@@ -1,11 +1,11 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
+import React, { useContext } from "react";
 import LogoutComponent from "./LogoutComponent";
 import UserContext from '../contexts/UserContext';
 
 const loggedoutLinks = [
-  { path: '/login', text: 'Login' },
-  { path: '/register', text: 'Register' }
+  {path: '/login', text: 'Login'},
+  {path: '/register', text: 'Register'}
 ]
 
 const LoggedoutNavLinks = () => {
@@ -70,13 +70,14 @@ const Navbar = () => {
               {/* HR: Keeping this line active for testing purposes */}
               
 
+            {/* HR: Links below should be for logged in user only */}
+            {/* <Link to='/trails/???'>Log Out</Link> */}
+            {/* HR: Keeping this line active for testing purposes */}
           </ul>
-
         </div>
-
       </div>
     </nav>
   )
 }
 
-export default Navbar
+export default Navbar;
