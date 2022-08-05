@@ -77,4 +77,4 @@ const Trail = ({ trail }) => {
   )
 }
 
-export default Trail
+export default Trail;
