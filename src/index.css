@@ -41,9 +41,11 @@
   font-family: 'Libre Franklin', sans-serif;
 }
 .trail-img-sm {
-  height: 20vw;
-  min-height: 350px;
-  object-fit: cover;
+  width: 100%;
+  /* height: 25vw; */
+  /* height: auto; */
+  min-height: 310px;
+  /* object-fit: cover; */
 }
 
 body {
