@@ -158,6 +158,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
 
                     <TrailUpdates>
 
+
                         {/* <div type="button" className="btn btn-primary"><Link to={`/trails/edit/${trail._id}`}>Edit Trail</Link></div>
                         <div type="button" className="btn btn-danger" onClick={() => deleteTrail(trail._id)}>Delete</div> */}
 
@@ -179,6 +180,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                             >
                                 Delete
                         </div>
+
                     </TrailUpdates>
                 </DetailsContainer>
             </TrailDetailContainer>
