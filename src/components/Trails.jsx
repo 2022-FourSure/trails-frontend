@@ -10,6 +10,9 @@ import Trail from '../components/Trail'
 // `
 
 const Trails = ({ trails }) => {
+
+  console.log('trails', trails)
+
   return (
     // <TrailsContainer>
 
@@ -30,4 +33,4 @@ const Trails = ({ trails }) => {
   )
 }
 
-export default Trails;
+export default Trails

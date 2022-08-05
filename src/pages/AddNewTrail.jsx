@@ -52,159 +52,165 @@ const FormStyle = styled.div`
 `
 
 const AddNewTrail = ({ addTrail }) => {
-  const initialState = {
-    name: "",
-    location: "",
-    difficulty: "",
-    length: "",
-    elevationChange: "",
-    routeType: "",
-    description: "",
-    file: "",
-  }
+    const initialState = {
+        name: "",
+        location: "",
+        difficulty: "",
+        length: "",
+        elevationChange: "",
+        routeType: "",
+        description: "",
+        file: "",
+    }
 
-  const navigate = useNavigate()
+    const navigate = useNavigate()
 
-  const [formData, setFormData] = useState(initialState)
+    const [formData, setFormData] = useState(initialState)
 
-  // Function to handle all form data except for the image
-  const handleChange = (e) => {
-    console.log(e.target)
-    setFormData({ ...formData, [e.target.id]: e.target.value })
-  }
+    // Function to handle all form data except for the image
+    const handleChange = (e) => {
+        console.log(e.target)
+        setFormData({ ...formData, [e.target.id]: e.target.value })
+    }
 
-  // Function to handle image upload in the form
-  const handleImage = (e) => {
-    console.log('handleImage ran')
-    setFormData({ ...formData, [e.target.id]: e.target.files[0] })
-  }
+    // Function to handle image upload in the form
+    const handleImage = (e) => {
+        console.log('handleImage ran')
+        setFormData({ ...formData, [e.target.id]: e.target.files[0] })
+    }
 
-  const handleSubmit = (e) => {
-    console.log('handleSubmit ran')
-    e.preventDefault()
-    console.log('formData', formData)
-    // multipart/form-data is needed so backend knows to look for files
-    axios.post("http://localhost:8000/trails/", formData, { headers: { "Content-Type": "multipart/form-data" } })
-      .then((res) => {
-        setFormData(initialState)
-        addTrail(res.data)
-        navigate("/", { replace: true })
-      })
-  }
+    const handleSubmit = (e) => {
+        console.log('handleSubmit ran')
+        e.preventDefault()
+        console.log('formData', formData)
+        // multipart/form-data is needed so backend knows to look for files
+        axios.post("http://localhost:8000/trails/", formData, {headers: {"Content-Type": "multipart/form-data"}})
+        .then((res) => {
+            setFormData(initialState)
+            addTrail(res.data)
+            navigate("/", { replace: true })
+        })
+    }
 
-  return (
-    <FormStyle>
-      <h2>Add New Trail</h2>
-      {/* HR: Placeholders are commented out because it gives an error where you can't submit if the input fields have placeholders */}
-      <form encType='multipart/form-data' onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Trail Name</label>
-          <div>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              // placeholder="Name"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+    return (
+        <FormStyle>
+            <h2>Add New Trail</h2>
+            {/* HR: Placeholders are commented out because it gives an error where you can't submit if the input fields have placeholders */}
+            <form encType='multipart/form-data' onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="name">Trail Name</label>
+                    <div>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            // placeholder="Name"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-        <div>
-          <label htmlFor="location">Location</label>
-          <div>
-            <input
-              id="location"
-              name="location"
-              type="text"
-              // placeholder="Location (city, state)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+                 <div>
+                    <label htmlFor="location">Location</label>
+                    <div>
+                        <input
+                            id="location"
+                            name="location"
+                            type="text"
+                            // placeholder="Location (city, state)"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-        <div>
-          <label htmlFor="difficulty">Difficulty</label>
-          <div>
-            <input
-              id="difficulty"
-              name="difficulty"
-              type="text"
-              // placeholder="Difficulty (level 1 - 5)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+                <div>
+                    <label htmlFor="difficulty">Difficulty</label>
+                    <div>
+                        <input
+                            id="difficulty"
+                            name="difficulty"
+                            type="text"
+                            // placeholder="Difficulty (level 1 - 5)"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-        <div>
-          <label htmlFor="length">Length</label>
-          <div>
-            <input
-              id="length"
-              name="length"
-              type="text"
-              // placeholder="Length (miles)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+                <div>
+                    <label htmlFor="length">Length</label>
+                        <div> 
+                            <input
+                                id="length"
+                                name="length"
+                                type="text"
+                                // placeholder="Length (miles)"
+                                onChange={handleChange}
+                            />
+                        </div>
+                </div>
 
-        <div>
-          <label htmlFor="elevationChange">Elevation Change</label>
-          <div>
-            <input
-              id="elevationChange"
-              name="elevationChange"
-              type="text"
-              // placeholder="Elevation Change (numerical)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+                <div>
+                    <label htmlFor="elevationChange">Elevation Change</label>
+                    <div>
+                        <input
+                            id="elevationChange"
+                            name="elevationChange"
+                            type="text"
+                            // placeholder="Elevation Change (numerical)"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-        <div>
-          <label htmlFor="routeType">Route Type</label>
-          <div>
-            <input
-              id="routeType"
-              name="routeType"
-              type="text"
-              // placeholder="Route Type (e.g. Loop)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+                <div>
+                    <label htmlFor="routeType">Route Type</label>
+                    <div>
+                        <input
+                            id="routeType"
+                            name="routeType"
+                            type="text"
+                            // placeholder="Route Type (e.g. Loop)"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-        <div>
-          <label htmlFor="description">Description</label>
-          <div>
-            <textarea
-              id="description"
-              name="description"
-              type="text"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+                <div>
+                    <label htmlFor="description">Description</label>
+                    <div>
+                        <textarea
+                            id="description"
+                            name="description"
+                            type="text"
+                            onChange={handleChange}
+                        />
+                    </div>
+                </div>
 
-        <div>
-          <label htmlFor="image">Image</label>
-          <div>
-            <input
-              id="image"
-              name="image"
-              type="file"
-              onChange={handleImage}
-            />
-          </div>
-        </div>
+                <div>
+                    <label htmlFor="image"></label>
+                    <div>
+                        <input
+                            id="image"
+                            name="image"
+                            type="file"
+                            onChange={handleImage}
+                        />
+                    </div>
+                </div>
 
-        <div>
-          <input type="submit" value="Submit" />
-        </div>
-      </form>
-    </FormStyle>
-  )
+                <div className="m-3">
+                    {/* <input type="submit" value="Submit" /> */}
+                    <button 
+                        type="submit" 
+                        className="submit-btn btn my-2 text-white"
+                        >
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </FormStyle>
+    )
 }
 
 export default AddNewTrail
