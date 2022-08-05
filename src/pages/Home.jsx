@@ -1,13 +1,13 @@
 import Trails from "../components/Trails";
 import styled from 'styled-components'
 
-const HomepageBody = styled.div`
-    h1 {
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-size: 5vw;
-        text-align: center;
-    }
-`
+// const HomepageBody = styled.div`
+//     h1 {
+//         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+//         font-size: 5vw;
+//         text-align: center;
+//     }
+// `
 
 const BackgroundImage = styled.div`
     opacity: 0.35;
@@ -18,16 +18,20 @@ const BackgroundImage = styled.div`
 `
 const Home = ({trails, updateTrailState}) => {
     return (
-        <HomepageBody>
-            <BackgroundImage>
-                <div class="bg-img">
+        // <HomepageBody>
+        <div>
+            {/* <BackgroundImage>
+                <div>
                     <img src="/assets/background_image.jpg" alt="background" />
                 </div>
-            </BackgroundImage>
+            </BackgroundImage> */}
             <div>
                 <Trails trails={trails} updateTrailState={updateTrailState}/>
-            </div>
-        </HomepageBody>
+            </div>            
+        </div>
+
+        // </HomepageBody>
+
     );
 };
 
