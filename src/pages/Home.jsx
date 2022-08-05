@@ -22,20 +22,23 @@ const Home = ({trails, updateTrailState}) => {
         <div className="home">
 
             {/* <BackgroundImage> */}
+            
             <div className="box">
                 <img 
                     className="bg-img" 
                     src="/assets/background_image.jpg" 
                     alt="background" />   
             </div>
+            
             {/* </BackgroundImage> */}
+
             <div className="quote-overlay">
                 <figure className="text-center">
                         <blockquote className="blockquote h5">
                             <p>There are no shortcuts to any place worth going.</p>
                         </blockquote>
                         <figcaption className="blockquote-footer">
-                            Beverly Sills <cite title="Source Title">Source Title</cite>
+                            Beverly Sills 
                         </figcaption>
                     </figure>          
             </div>

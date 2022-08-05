@@ -1,13 +1,13 @@
 import React from 'react'
 import Trail from '../components/Trail'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
-const TrailsContainer = styled.div`
-    min-width: 100vw;
-    display:  flex;
-    flex-wrap: wrap;
-    gap: 20px;
-`
+// const TrailsContainer = styled.div`
+//     min-width: 100vw;
+//     display:  flex;
+//     flex-wrap: wrap;
+//     gap: 20px;
+// `
 
 const Trails = ({ trails }) => {
 

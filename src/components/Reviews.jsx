@@ -9,7 +9,6 @@ const Reviews = ({ reviews, handleSubmit, handleChange }) => {
   return (
     <div className='row d-flex justify-content-center'>
         <div className='col-md-10 col-lg-8'>
-            Trail Reviews and Ratings
             <div className="card shadow-0 border" style={{backgroundColor: "#f0f2f5"}}>
                 <div className="card-body">
 
