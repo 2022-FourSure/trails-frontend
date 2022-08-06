@@ -55,8 +55,8 @@ Log In Page
 Create New Trail
 ![login](./public/project-images/5_newtrail.png)
 Edit Trail
-![login](./public/project-images/6_edittrail.png)
-
+![login]()
+./public/project-images/6_edittrail.png
 ## Known Issues 
 - Need to make delete trails conditional on being logged in.
 - Can add a review but the form does not clear.
