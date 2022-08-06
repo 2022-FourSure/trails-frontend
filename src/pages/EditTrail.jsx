@@ -195,7 +195,7 @@ const EditTrail = ({ setTrails }) => {
                 </div>
 
                 <div>
-                    <label htmlFor="name">Image</label>
+                    <label htmlFor="name"></label>
                     <div>
                         <input
                             id="image"
@@ -212,7 +212,6 @@ const EditTrail = ({ setTrails }) => {
                         >
                         Submit
                     </button>
-                    {/* <input type="submit" value="Submit" /> */}
                 </div>
             </form>
         </FormStyle>

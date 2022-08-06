@@ -202,14 +202,7 @@ const AddNewTrail = ({ addTrail }) => {
                   type="file"
                   onChange={handleImage}
                 />
-
-                    <button 
-                        type="submit" 
-                        className="submit-btn btn my-2 text-white"
-                        >
-                        Submit
-                    </button>
-                {/* <div className="d-grid mt-5">
+                <div className="d-grid mt-5">
                   <Button
                     variant="primary"
                     type="submit"
@@ -218,7 +211,7 @@ const AddNewTrail = ({ addTrail }) => {
                   >
                     Add Trail
                   </Button>
-                </div> */}
+                </div>
               </Form>
             </Card.Body>
           </Card>
