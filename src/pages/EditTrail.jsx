@@ -206,7 +206,13 @@ const EditTrail = ({ setTrails }) => {
                     </div>
                 </div>
                 <div>
-                    <input type="submit" value="Submit" />
+                    <button 
+                        type="submit" 
+                        className="submit-btn btn my-2 text-white"
+                        >
+                        Submit
+                    </button>
+                    {/* <input type="submit" value="Submit" /> */}
                 </div>
             </form>
         </FormStyle>
