@@ -19,7 +19,7 @@ Trail Details Page
 - [x] As a user, I would like to view details of local hiking trails.
 - [x] As a user, I would like to have the option to signup/login.
 - [x] As a logged in user, I'd like to edit hikes.
-- [] As a logged in user, I'd like to add new hikes.
+- [ ] As a logged in user, I'd like to add new hikes.
 - [x] As a logged in user, I'd like to delete hikes.
 - [x] As a logged in user, I would like to add reviews of trails.
 - [x] As a user, I'd like to see photos of the hikes.
