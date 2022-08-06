@@ -13,7 +13,7 @@ function App() {
   const [trails, setTrails] = useState([]);
 
     useEffect(() => {
-        fetch("http://take-a-hike-backend.herokuapp.com/trails")
+        fetch("https://take-a-hike-backend.herokuapp.com/trails")
             .then((res) => res.json())
             .then((json) => {
                 setTrails(json);
