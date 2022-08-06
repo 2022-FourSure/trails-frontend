@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Take a Hike 
+## Project Description
+Take a Hike is an app for outdoor enthusiasts to explore and manage hiking/biking trails. With the option to signup and login, users can also leave reviews for their favorite trails. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project Links
+#### Front-end: https://take-a-hike-dude.herokuapp.com/trails
+#### Back-end: http://take-a-hike-backend.herokuapp.com/trails 
 
-## Available Scripts
+## Wireframes 
+Homepage
+![home](./public/wireframes/1_home.png)
+Log In Page
+![login](./public/wireframes/2_login.png)
+Trail Details Page
+![details](./public/wireframes/3_details.png)
 
-In the project directory, you can run:
+## User Stories - MVP
+- [x] As a user, I would like to view local hiking trails.
+- [x] As a user, I would like to view details of local hiking trails.
+- [x] As a user, I would like to have the option to signup/login.
+- [x] As a logged in user, I'd like to edit hikes.
+- [x] As a logged in user, I'd like to add new hikes.
+- [x] As a logged in user, I'd like to delete hikes.
+- [x] As a logged in user, I would like to add reviews of trails.
+- [x] As a user, I'd like to see photos of the hikes.
 
-### `npm start`
+## User Stories - Stretch 
+- As a user, I'd like to login using Google, Facebook, or Twitter.
+- As a logged in user, I would like to bookmark trails and view my favorites.
+- As a user, I'd like to see a wide variety of trails in the database. 
+- As a user, if I don't have a photo, I'd like there to be a default photo populated when I create a new entry.
+- As a user, I'd like the ability to filter hikes by location, difficulty, and possibly other attributes.
+- As a user, I would like to see the weather for hiking locations. 
+- As a user, I would like to setup a profile with my name, location, photo, and reviews.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used 
+- MERN Stack (MongoDB/Atlas, Express, React, Node.js)
+- Javascript 
+- Bootstrap
+- CSS styled components
+- Cloudinary
+- Multer
+- Postman
+- Heroku
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Images
+Homepage
+![home](./public/project-images/1_home.png)
+Trail Details Page
+![details](./public/project-images/2_detailspage.png)
+Sign Up Page
+![login](./public/project-images/3_signup.png)
+Log In Page
+![login](./public/project-images/4_login.png)
