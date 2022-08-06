@@ -27,7 +27,7 @@ export const RegisterComponent = () => {
         email: email,
         password: password,
       };
-      const res = await axios.post("http://localhost:8000/register", userData);
+      const res = await axios.post("https://take-a-hike-backend.herokuapp.com/register", userData);
       const { status, error } = res; 
       if (isSuccesfulStatus(status)) {
         const user = res.data

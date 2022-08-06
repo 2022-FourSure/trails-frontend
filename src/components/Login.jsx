@@ -36,7 +36,7 @@ export const LoginComponent = () => {
     try {
       setLoading(true);
       setLoginError('')
-      const res = await axios.post("http://localhost:8000/login", userData);
+      const res = await axios.post("https://take-a-hike-backend.herokuapp.com/login", userData);
       const { status, error } = res; 
       if (isSuccesfulStatus(status)) {
         cacheUser(res.data.user);
