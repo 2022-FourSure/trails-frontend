@@ -19,7 +19,7 @@ Trail Details Page
 - [x] As a user, I would like to view details of local hiking trails.
 - [x] As a user, I would like to have the option to signup/login.
 - [x] As a logged in user, I'd like to edit hikes.
-- [ ] As a logged in user, I'd like to add new hikes.
+- [x] As a logged in user, I'd like to add new hikes.
 - [x] As a logged in user, I'd like to delete hikes.
 - [x] As a logged in user, I would like to add reviews of trails.
 - [x] As a user, I'd like to see photos of the hikes.
@@ -58,7 +58,6 @@ Edit Trail
 ![login](./public/project-images/6_edittrail.png)
 
 ## Known Issues 
-- Need to redeploy to the main heroku app after fixing authentication issues.
-- Unable to add a new trail.
+- Need to make delete trails conditional on being logged in.
 - Can add a review but the form does not clear.
 - Any user can add a review not just a logged in user. 
