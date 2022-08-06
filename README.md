@@ -19,7 +19,7 @@ Trail Details Page
 - [x] As a user, I would like to view details of local hiking trails.
 - [x] As a user, I would like to have the option to signup/login.
 - [x] As a logged in user, I'd like to edit hikes.
-- [x] As a logged in user, I'd like to add new hikes.
+- [] As a logged in user, I'd like to add new hikes.
 - [x] As a logged in user, I'd like to delete hikes.
 - [x] As a logged in user, I would like to add reviews of trails.
 - [x] As a user, I'd like to see photos of the hikes.
@@ -52,3 +52,13 @@ Sign Up Page
 ![login](./public/project-images/3_signup.png)
 Log In Page
 ![login](./public/project-images/4_login.png)
+Create New Trail
+![login](./public/project-images/5_newtrail.png)
+Edit Trail
+![login](./public/project-images/6_edittrail.png)
+
+## Known Issues 
+- Need to redeploy to the main heroku app after fixing authentication issues.
+- Unable to add a new trail.
+- Can add a review but the form does not clear.
+- Any user can add a review not just a logged in user. 
