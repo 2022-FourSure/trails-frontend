@@ -18,7 +18,7 @@ const useAuth = () => {
         return null;
       }
       setUserError('');
-      const res = await axios.get('http://localhost:8000/user', { withCredentials: true })
+      const res = await axios.get('https://take-a-hike-dude.herokuapp.com/user', { withCredentials: true })
       const user = res?.data?.user || {};
       if (!isEmptyExtended(user)) {
         cacheUser(user);
