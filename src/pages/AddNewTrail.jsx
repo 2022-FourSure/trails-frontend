@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Alert } from "react-bootstrap";
+import {
+  Alert,
+  FormControl,
+  Container,
+  Form,
+  Button,
+  Row,
+  Col,
+  Card,
+} from "react-bootstrap";
 import styled from "styled-components";
 import { BASE_PROD_URL } from "../api";
 import getAxiosError from "../helpers/getAxiosError";
@@ -104,116 +113,111 @@ const AddNewTrail = ({ addTrail }) => {
   };
 
   return (
-    <FormStyle>
-      {error.length > 0 ? <Alert variant={"danger"}>{error}</Alert> : null}
-      <h2>Add New Trail</h2>
-      {/* HR: Placeholders are commented out because it gives an error where you can't submit if the input fields have placeholders */}
-      <form encType="multipart/form-data" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Trail Name</label>
-          <div>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              // placeholder="Name"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="location">Location</label>
-          <div>
-            <input
-              id="location"
-              name="location"
-              type="text"
-              // placeholder="Location (city, state)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="difficulty">Difficulty</label>
-          <div>
-            <input
-              id="difficulty"
-              name="difficulty"
-              type="text"
-              // placeholder="Difficulty (level 1 - 5)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="length">Length</label>
-          <div>
-            <input
-              id="length"
-              name="length"
-              type="text"
-              // placeholder="Length (miles)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="elevationChange">Elevation Change</label>
-          <div>
-            <input
-              id="elevationChange"
-              name="elevationChange"
-              type="text"
-              // placeholder="Elevation Change (numerical)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="routeType">Route Type</label>
-          <div>
-            <input
-              id="routeType"
-              name="routeType"
-              type="text"
-              // placeholder="Route Type (e.g. Loop)"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="description">Description</label>
-          <div>
-            <textarea
-              id="description"
-              name="description"
-              type="text"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="image"></label>
-          <div>
-            <input id="image" name="image" type="file" onChange={handleImage} />
-          </div>
-        </div>
-
-        <div className="m-3">
-          {/* <input type="submit" value="Submit" /> */}
-          <button type="submit" className="submit-btn btn my-2 text-white">
-            Submit
-          </button>
-        </div>
-      </form>
-    </FormStyle>
+    <Container>
+      <Row>
+        <Col xs={6} className='mx-auto'>
+          <Card className="card trail-card">
+            <h4>Add New Trail</h4>
+            {error.length > 0 ? (
+              <Alert variant={"danger"}>{error}</Alert>
+            ) : null}
+            <Card.Body>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Trail Name</Form.Label>
+                  <FormControl
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Name"
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Location</Form.Label>
+                  <FormControl
+                    id="location"
+                    name="location"
+                    type="text"
+                    placeholder="Location (city, state)"
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Difficulty</Form.Label>
+                  <FormControl
+                    id="difficulty"
+                    name="difficulty"
+                    type="number"
+                    placeholder="Enter a number for difficulty"
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Length</Form.Label>
+                  <FormControl
+                    id="length"
+                    name="length"
+                    type="number"
+                    placeholder="Enter a number for length"
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Elevation Change</Form.Label>
+                  <FormControl
+                    id="elevationChange"
+                    name="elevationChange"
+                    type="number"
+                    placeholder="Enter a number for elevation change"
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Route Type (e.g. Loop) </Form.Label>
+                  <FormControl
+                    id="routeType"
+                    name="routeType"
+                    type="text"
+                    placeholder="Enter Route Type (e.g. Loop)"
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Description </Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    placeholder="Add description"
+                    id="description"
+                    name="description"
+                    onChange={handleChange}
+                    type="text"
+                    style={{ height: "100px" }}
+                  />
+                </Form.Group>
+                <Form.Label>Optional: Add Trail Image </Form.Label>
+                <FormControl
+                  id="image"
+                  name="image"
+                  type="file"
+                  onChange={handleImage}
+                />
+                <div className="d-grid mt-5">
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    className="uppercase bs-bg-primary"
+                    size="lg"
+                  >
+                    Add Trail
+                  </Button>
+                </div>
+              </Form>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
