@@ -49,13 +49,13 @@ Homepage
 Trail Details Page
 ![details](./public/project-images/2_detailspage.png)
 Sign Up Page
-![login](./public/project-images/3_signup.png)
+![signup](./public/project-images/3_signup.png)
 Log In Page
 ![login](./public/project-images/4_login.png)
 Create New Trail
-![login](./public/project-images/5_newtrail.png)
+![create](./public/project-images/5_newtrail.png)
 Edit Trail
-![login](./public/project-images/6_edittrail.png)
+![edit](./public/project-images/6_edittrail.png)
 
 ## Known Issues 
 - Need to make delete trails conditional on being logged in.
