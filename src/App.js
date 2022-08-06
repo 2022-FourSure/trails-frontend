@@ -45,9 +45,9 @@ function App() {
     setTrails(trails.filter((trail) => trail._id !== id));
   };
 
-  useEffect(() => {
-    fetchTrails();
-  }, []);
+  // useEffect(() => {
+  //   fetchTrails();
+  // }, []);
 
   useEffect(() => {
     fetchUser();
