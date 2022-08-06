@@ -53,7 +53,8 @@ Sign Up Page
 Log In Page
 ![login](./public/project-images/4_login.png)
 Create New Trail
-![login](./public/project-images/5_newtrail.png)
+![login]()
+./public/project-images/5_newtrail.png
 Edit Trail
 ![login](./public/project-images/6_edittrail.png)
 
