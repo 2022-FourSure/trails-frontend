@@ -7,6 +7,7 @@ import isSuccesfulStatus from "../helpers/isSuccessfulStatus";
 import UserContext from '../contexts/UserContext';
 import getAxiosError from "../helpers/getAxiosError";
 import CenteredLoader from "./CenteredLoader";
+import { BASE_PROD_URL } from "../api";
 
 export const RegisterComponent = () => {
   const navigate = useNavigate()
@@ -27,7 +28,7 @@ export const RegisterComponent = () => {
         email: email,
         password: password,
       };
-      const res = await axios.post("https://take-a-hike-backend.herokuapp.com/register", userData);
+      const res = await axios.post(`${BASE_PROD_URL}/register`, userData);
       const { status, error } = res; 
       if (isSuccesfulStatus(status)) {
         const user = res.data

@@ -15,6 +15,7 @@ import LoggedInRedirect from "./components/LoggedInRedirect";
 import CenteredLoader from './components/CenteredLoader';
 import UserContext from "./contexts/UserContext";
 import useAuth from "./hooks/useAuth";
+import { BASE_PROD_URL } from "./api";
 
 const setAxiosDefaults = () => {
   axios.defaults.withCredentials = true;
@@ -29,7 +30,7 @@ function App() {
   const [trails, setTrails] = useState([]);
 
     useEffect(() => {
-        fetch("https://take-a-hike-backend.herokuapp.com/trails")
+        fetch(`${BASE_PROD_URL}/trails`)
             .then((res) => res.json())
             .then((json) => {
                 setTrails(json);

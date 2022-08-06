@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import removeCachedUserAndLogOut from "../helpers/removeCachedUserAndLogOut";
 import UserContext from "../contexts/UserContext";
+import { BASE_PROD_URL } from "../api";
 
 export const LogoutNavLink = () => {
   let navigate = useNavigate();
@@ -11,7 +12,7 @@ export const LogoutNavLink = () => {
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("https://take-a-hike-backend.herokuapp.com/logout");
+      await axios.put(`${BASE_PROD_URL}/logout`);
       removeCachedUserAndLogOut();
       setLoggedIn(false);
       navigate("/");

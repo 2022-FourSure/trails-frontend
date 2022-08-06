@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from 'axios'
 import { useParams, useNavigate } from "react-router-dom"
 import styled from 'styled-components'
+import { BASE_PROD_URL } from "../api"
 
 const FormStyle = styled.div`
     display: flex;
@@ -83,7 +84,7 @@ const EditTrail = ({ setTrails }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.patch(`https://take-a-hike-backend.herokuapp.com/trails/${id}`, formData)
+        axios.patch(`${BASE_PROD_URL}/trails/${id}`, formData)
         .then((res) => {
             setFormData(initialState)
             setTrails(res.data)
@@ -92,7 +93,7 @@ const EditTrail = ({ setTrails }) => {
     }
 
     useEffect(()=> {
-        axios.get(`https://take-a-hike-backend.herokuapp.com/trails/${id}`)
+    axios.get(`${BASE_PROD_URL}/trails/${id}`)
         .then(res => {
             setFormData(res.data)
         })

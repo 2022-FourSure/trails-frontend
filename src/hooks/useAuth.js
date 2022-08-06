@@ -4,6 +4,7 @@ import axios from 'axios'
 import cacheUser from '../helpers/cacheUser';
 import removeCachedUserAndLogout from '../helpers/removeCachedUserAndLogOut';
 import useLoggedIn from '../hooks/useLoggedIn';
+import { BASE_PROD_URL } from '../api';
 
 const useAuth = () => {
   const [loadingUser, setLoadingUser] = useState('pending');
@@ -18,7 +19,7 @@ const useAuth = () => {
         return null;
       }
       setUserError('');
-      const res = await axios.get('https://take-a-hike-dude.herokuapp.com/user', { withCredentials: true })
+      const res = await axios.get(`${BASE_PROD_URL}/user`, { withCredentials: true })
       const user = res?.data?.user || {};
       if (!isEmptyExtended(user)) {
         cacheUser(user);

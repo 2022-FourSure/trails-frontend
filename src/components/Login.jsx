@@ -6,13 +6,8 @@ import isSuccesfulStatus from "../helpers/isSuccessfulStatus";
 import cacheUser from "../helpers/cacheUser";
 import UserContext from '../contexts/UserContext';
 import CenteredLoader from "./CenteredLoader";
-const getAxiosError = (err) => {
-  const dataError = err?.response?.data?.error || false; 
-  if (dataError) {
-    return dataError
-  }
-  return err.message
-}
+import { BASE_PROD_URL } from "../api";
+import getAxiosError from "../helpers/getAxiosError";
 
 
 export const LoginComponent = () => {
@@ -36,7 +31,7 @@ export const LoginComponent = () => {
     try {
       setLoading(true);
       setLoginError('')
-      const res = await axios.post("https://take-a-hike-backend.herokuapp.com/login", userData);
+      const res = await axios.post(`${BASE_PROD_URL}/login`, userData);
       const { status, error } = res; 
       if (isSuccesfulStatus(status)) {
         cacheUser(res.data.user);

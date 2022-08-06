@@ -1,7 +1,10 @@
 import React, { useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
+import { Alert } from "react-bootstrap";
 import styled from 'styled-components'
+import { BASE_PROD_URL } from "../api";
+import getAxiosError from "../helpers/getAxiosError";
 
 const FormStyle = styled.div`
     display: flex;
@@ -66,6 +69,7 @@ const AddNewTrail = ({ addTrail }) => {
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState(initialState)
+    const [error, setError] = useState('')
 
     // Function to handle all form data except for the image
     const handleChange = (e) => {
@@ -84,16 +88,20 @@ const AddNewTrail = ({ addTrail }) => {
         e.preventDefault()
         console.log('formData', formData)
         // multipart/form-data is needed so backend knows to look for files
-        axios.post("https://take-a-hike-backend.herokuapp.com/trails", formData, {headers: {"Content-Type": "multipart/form-data"}})
-        .then((res) => {
+        axios.post(`${BASE_PROD_URL}/trails`, formData, {headers: {"Content-Type": "multipart/form-data"}})
+          .then((res) => {
+      
             setFormData(initialState)
             addTrail(res.data)
             navigate("/", { replace: true })
+        }).catch(err => {
+          setError(getAxiosError(err))
         })
     }
 
     return (
         <FormStyle>
+            {error.length > 0 ? <Alert variant={'danger'}>{error}</Alert> : null} 
             <h2>Add New Trail</h2>
             {/* HR: Placeholders are commented out because it gives an error where you can't submit if the input fields have placeholders */}
             <form encType='multipart/form-data' onSubmit={handleSubmit}>
