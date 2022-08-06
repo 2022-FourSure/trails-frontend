@@ -67,7 +67,7 @@ code {
     monospace;
 }
 
-.auth-card {
+.auth-card, .trail-card {
   padding: 20px; 
   position: relative;
   display: flex;

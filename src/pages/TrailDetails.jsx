@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styled from 'styled-components'
-import Review from "../components/Review";
 import Reviews from "../components/Reviews";
+import { BASE_PROD_URL } from "../api";
 
 const PageContainer = styled.div`
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -96,7 +96,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
     // const [isTrail]
 
     useEffect(() => {
-        fetch(`https://take-a-hike-backend.herokuapp.com/trails/${id}`)
+        fetch(`${BASE_PROD_URL}/trails/${id}`)
             .then((res) => res.json())
             .then((json) => {
                 console.log('json', json);
@@ -114,9 +114,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
     // Function to handle submit of a new review for the hike
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData)
-        console.log('id:', id)
-        axios.post(`https://take-a-hike-backend.herokuapp.com/trails/${id}/reviews`, formData)
+        axios.post(`${BASE_PROD_URL}/trails/${id}/reviews`, formData)
         .then((json) => {
             console.log(json.data)
             setFormData(initialState)
@@ -132,7 +130,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
     const deleteTrail = (id) => {
         console.log(trails)
         console.log(id)
-        axios.delete(`https://take-a-hike-backend.herokuapp.com/trails/${id}`)
+        axios.delete(`${BASE_PROD_URL}/trails/${id}`)
         .then(res => {
             console.log(res)
             deleteTrailFromState(id)
