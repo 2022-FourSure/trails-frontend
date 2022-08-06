@@ -11,7 +11,7 @@ export const LogoutNavLink = () => {
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:8000/logout");
+      await axios.put("https://take-a-hike-backend.herokuapp.com/logout");
       removeCachedUserAndLogOut();
       setLoggedIn(false);
       navigate("/");

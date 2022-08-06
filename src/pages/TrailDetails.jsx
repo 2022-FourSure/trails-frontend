@@ -155,7 +155,7 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                     <p><b>Length:</b> {trail.length} mile(s)</p>
                     <p><b>Elevation Change:</b> {trail.elevationChange}</p>
 
-                    {/* HR: Should ONLY be available to logged in user. Currently active for test purposes */}
+                    {/* HR: Should ONLY be available to logged in user.*/}
 
                     <TrailUpdates>
                         <div 
@@ -164,9 +164,6 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                             onClick={() => navigate(`/trails/edit/${trail._id}`)}
                             >
                                 Edit
-                                {/* <Link to={`/trails/edit/${trail._id}`}>
-                                    Edit Trail
-                                </Link> */}
                         </div>
 
                         <div 
@@ -196,52 +193,6 @@ const TrailDetails = ({ trails, setTrails, deleteTrailFromState }) => {
                 setReviews={setReviews}
                 setFormData={setFormData}
                 />
-
-
-
-            {/* <ReviewsContainer>
-                <h2>Add A Review</h2>
-                <form onSubmit={handleSubmit}>
-                <label htmlFor="content"></label>
-                <div>
-                            <textarea
-                            id="content"
-                            name="content"
-                            type="text"
-                                onChange={handleChange}
-                                />
-                                </div>
-
-                                <RatingContainer>
-                                <label htmlFor="rating">Rating</label>
-                            
-                                <select
-                                value={formData.rating}
-                                id="rating"
-                                name="rating"
-                                type="text"
-                                onChange={handleChange}
-                                >
-                                <option value="5">5</option>
-                                <option value="4">4</option>
-                                <option value="3">3</option>
-                                <option value="2">2</option>
-                                <option value="1">1</option>
-                                </select>
-                                </RatingContainer>
-
-                                <SubmitButton>
-                                <input type="submit" value="Submit" />
-                                </SubmitButton>
-                        </form>
-                        <div>
-                        <h2>Reviews</h2>
-                        { reviews ? reviews.map(review => {
-                            return <Review review={review} key={review._id}  /> })
-                        : null
-                    }
-                    </div>
-                </ReviewsContainer> */}
 
             </PageContainer>
     );
