@@ -38,7 +38,7 @@ function App() {
             .catch(console.error);
     }, []);
 
-  const addTrailToState = (trail) => {
+  const addTrail = (trail) => {
     setTrails([...trails, trail]);
   };
 
@@ -85,7 +85,7 @@ function App() {
           path="/trails/new"
           element={
             <AuthenticatedRoute>
-              <AddNewTrail addTrailToState={addTrailToState} />
+              <AddNewTrail addTrail={addTrail} />
             </AuthenticatedRoute>
           }
         ></Route>
