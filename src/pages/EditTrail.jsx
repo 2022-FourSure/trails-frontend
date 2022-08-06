@@ -83,7 +83,7 @@ const EditTrail = ({ setTrails }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.patch(`http://take-a-hike-backend.herokuapp.com/trails/${id}`, formData)
+        axios.patch(`https://take-a-hike-backend.herokuapp.com/trails/${id}`, formData)
         .then((res) => {
             setFormData(initialState)
             setTrails(res.data)
@@ -92,7 +92,7 @@ const EditTrail = ({ setTrails }) => {
     }
 
     useEffect(()=> {
-        axios.get(`http://take-a-hike-backend.herokuapp.com/trails/${id}`)
+        axios.get(`https://take-a-hike-backend.herokuapp.com/trails/${id}`)
         .then(res => {
             setFormData(res.data)
         })
