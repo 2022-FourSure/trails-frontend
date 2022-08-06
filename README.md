@@ -60,4 +60,5 @@ Edit Trail
 ## Known Issues 
 - Need to make delete trails conditional on being logged in.
 - Can add a review but the form does not clear.
-- Any user can add a review not just a logged in user. 
+- Any user can add a review not just a logged in user.
+- Form styling can be more aligned.
